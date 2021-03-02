@@ -1,0 +1,14 @@
+{
+  "name": "kylescudder",
+  "version": "1.0.0",
+  "description": "A website and online portfolio for Kyle Scudder",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "kylescudder",
+  "license": "ISC",
+  "dependencies": {
+    "@primer/css": "^15.2.0"
+  }
+}

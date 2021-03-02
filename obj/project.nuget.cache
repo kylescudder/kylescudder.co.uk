@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "T9MPWlmAwBcgpUYB5Xzddp9CI7tAsWndRzD9+O0Qi3GY3k4KtQ7bhsLupUU9kTsXGcDojPj9ZuplWt+QeSFwCA==",
+  "success": true,
+  "projectFilePath": "D:\\Documents\\kylescudder\\kylescudder.co.uk.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\scud1\\.nuget\\packages\\microsoft.aspnetcore.blazor.httpclient\\3.2.0-preview3.20168.3\\microsoft.aspnetcore.blazor.httpclient.3.2.0-preview3.20168.3.nupkg.sha512",
+    "C:\\Users\\scud1\\.nuget\\packages\\octokit\\0.50.0\\octokit.0.50.0.nupkg.sha512",
+    "C:\\Users\\scud1\\.nuget\\packages\\system.text.json\\4.7.1\\system.text.json.4.7.1.nupkg.sha512"
+  ],
+  "logs": []
+}
