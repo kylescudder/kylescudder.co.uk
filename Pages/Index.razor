@@ -1,41 +1,57 @@
 @using Octokit
+@using System.Xml.Serialization
+@using System.IO
 @inject NavigationManager NavigationManager
 @page "/"
 
-<div class="mainSection">
+<div class="container">
 	<div class="row pt-4">
-		<div class="col-2">
+		<div class="col-4">
 			<img src="images/ksImage.png" class="ksImage" alt="Kyle Scudder" />
 		</div>
-		<div class="col-10">
-			<p>
-				<code>I am a software developer from Brighton, UK. I enjoy software development and live music. My background is primarily in .NET and C#, but I have really taken a shine to TypeScript and React lately.</code>
-			</p>
+		<div class="col-8">
+			<code>I am a software developer from Brighton, UK. I enjoy software development and live music. My background is primarily in .NET and C#, but I have really taken a shine to TypeScript and React lately.</code>
 		</div>
 	</div>
-	<div class="row">
-		@foreach (var repo in Repos)
-		{
-	  <div class="col-4">
-	   <div class="Box box-shadow">
-		<div class="Box-row">
-		 <h3 class="m-0">
-		  <p>@repo.name</p>
-		 </h3>
+	<div class="row pt-4">
+		<div class="col text-center">
+			<code>I have cherry picked some of my repos below. I am quite proud of them for various reasons. <p class="emojiFontSize">😁</p></code>
 		</div>
-		<div class="Box-row">
-		 <p class="mb-0 text-gray">
-		  @repo.description
-		 </p>
-		</div>
-		<div class="Box-row">
-		 <button type="button" name="Go to the repo" class="btn btn-primary btn-block"
-		  @onclick="@(e => RepoRedirect(@repo.url))">
-		  Go to the repo
-		 </button>
-		</div>
-	   </div>
-	  </div>
+	</div>
+	<div class="row pt-4">
+		@if (Repos.Count == 0) {
+			<div class="Box box-shadow col mx-auto text-center">
+						<div class="Box-row">
+							<code class="text-gray">I have hit the rate limit for GitHubs API, guess this site it more popular that I thought! <p class="emojiFontSize">😊</p></code>
+							<code class="text-gray">Until I can sort out OctoKit OAuth just use the link below to see my repos:</code>
+							<a name="Go to the repo" class="btn btn-primary btn-block" href="https://github.com/kylescudder?tab=repositories">
+								Go to the repo
+							</a>
+						</div>
+					</div>
+		} else {
+			@foreach (var repo in Repos)
+			{
+				<div class="col pt-2">
+					<div class="Box box-shadow">
+						<div class="Box-row">
+							<h3 class="m-0">
+								<p>@repo.name</p>
+							</h3>
+						</div>
+						<div class="Box-row">
+							<p class="mb-0 text-gray">
+								@repo.description
+							</p>
+						</div>
+						<div class="Box-row">
+							<a name="Go to the repo" class="btn btn-primary btn-block" href=@repo.url>
+								Go to the repo
+							</a>
+						</div>
+					</div>
+				</div>
+			}
 		}
  </div>
 </div>
@@ -49,19 +65,36 @@
 	public async Task<List<Repos>> GetCards()
 	{
 		var client = new GitHubClient(new Octokit.ProductHeaderValue("kylescudder"));
-		var user = await client.User.Get("kylescudder");
-		var list = new List<string> { "DatePot", "JSP", "Recipe-Saver" };
-		foreach (var items in list)
-		{
-			var Repositories = await client.Repository.Get("kylescudder", items);
-			Repos.Add(new Repos()
-			{
-				id = Repositories.Id,
-				name = Repositories.Name,
-				description = Repositories.Description,
-				url = Repositories.GitUrl
-			});
-		};
+		try {
+				@* var list = new List<string> { "DatePot", "JSP", "Recipe-Saver" }; *@
+
+				XmlSerializer serializer = new XmlSerializer(typeof(List<string>));
+
+				using(FileStream stream = File.OpenWrite("repos"))
+				{
+					List<string> list = new List<string>();
+					serializer.Serialize(stream, list);
+				}
+				List<string> dezerializedList = new List<string>();
+				using(FileStream stream = File.OpenRead("repos"))
+				{
+					dezerializedList = (List<string>)serializer.Deserialize(stream);
+				}
+
+				foreach (var items in dezerializedList)
+				{
+					var Repositories = await client.Repository.Get("kylescudder", items);
+					Repos.Add(new Repos()
+					{
+						id = Repositories.Id,
+						name = Repositories.Name,
+						description = Repositories.Description,
+						url = Repositories.HtmlUrl
+					});
+				};
+		} catch(Exception ex) {
+			Console.WriteLine(ex);
+		}
 		return Repos;
 	}
 	public void RepoRedirect(string url)

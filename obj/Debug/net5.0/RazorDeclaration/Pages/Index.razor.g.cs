@@ -98,7 +98,7 @@ using Octokit;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 42 "D:\Documents\kylescudder\Pages\Index.razor"
+#line 52 "D:\Documents\kylescudder\Pages\Index.razor"
        
 	public List<Repos> Repos = new List<Repos>();
 
@@ -109,19 +109,22 @@ using Octokit;
 	public async Task<List<Repos>> GetCards()
 	{
 		var client = new GitHubClient(new Octokit.ProductHeaderValue("kylescudder"));
-		var user = await client.User.Get("kylescudder");
-		var list = new List<string> { "DatePot", "JSP", "Recipe-Saver" };
-		foreach (var items in list)
-		{
-			var Repositories = await client.Repository.Get("kylescudder", items);
-			Repos.Add(new Repos()
-			{
-				id = Repositories.Id,
-				name = Repositories.Name,
-				description = Repositories.Description,
-				url = Repositories.GitUrl
-			});
-		};
+		try {
+				var list = new List<string> { "DatePot", "JSP", "Recipe-Saver" };
+				foreach (var items in list)
+				{
+					var Repositories = await client.Repository.Get("kylescudder", items);
+					Repos.Add(new Repos()
+					{
+						id = Repositories.Id,
+						name = Repositories.Name,
+						description = Repositories.Description,
+						url = Repositories.HtmlUrl
+					});
+				};
+		} catch(Exception ex) {
+			Console.WriteLine(ex);
+		}
 		return Repos;
 	}
 	public void RepoRedirect(string url)

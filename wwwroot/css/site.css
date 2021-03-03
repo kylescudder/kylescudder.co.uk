@@ -51,15 +51,27 @@ a, .btn-link {
         right: 0.75rem;
         top: 0.5rem;
     }
-.mainSection {
-    width: 100%;
-    }
 code {
     color: white;
 }
 .ksImage {
-    height: 30%;
+    width: 130%;
+    height: auto;
     border-radius: 5px;
     float: left;
     margin-right: 5%;
   }
+
+  @media only screen and (min-width: 600px) {
+    .ksImage {
+        width: 50%;
+        height: auto;
+        border-radius: 5px;
+        float: left;
+        margin-right: 5%;
+      }
+  }
+.emojiFontSize {
+    font-size: 24pt;
+    display: contents;
+}

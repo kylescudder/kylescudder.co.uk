@@ -12,39 +12,6 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
-        "HashCode": 261703224,
-        "Kind": "Components.Component",
-        "Name": "kylescudder.co.uk.Pages.FetchData",
-        "AssemblyName": "kylescudder.co.uk",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "FetchData"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "kylescudder.co.uk.Pages.FetchData"
-        }
-      },
-      {
-        "HashCode": -576016273,
-        "Kind": "Components.Component",
-        "Name": "kylescudder.co.uk.Pages.FetchData",
-        "AssemblyName": "kylescudder.co.uk",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "kylescudder.co.uk.Pages.FetchData"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "kylescudder.co.uk.Pages.FetchData",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": 870878864,
         "Kind": "Components.Component",
         "Name": "kylescudder.co.uk.Pages.Counter",
@@ -74,6 +41,39 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "kylescudder.co.uk.Pages.Counter",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 261703224,
+        "Kind": "Components.Component",
+        "Name": "kylescudder.co.uk.Pages.FetchData",
+        "AssemblyName": "kylescudder.co.uk",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "FetchData"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "kylescudder.co.uk.Pages.FetchData"
+        }
+      },
+      {
+        "HashCode": -576016273,
+        "Kind": "Components.Component",
+        "Name": "kylescudder.co.uk.Pages.FetchData",
+        "AssemblyName": "kylescudder.co.uk",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "kylescudder.co.uk.Pages.FetchData"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "kylescudder.co.uk.Pages.FetchData",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
