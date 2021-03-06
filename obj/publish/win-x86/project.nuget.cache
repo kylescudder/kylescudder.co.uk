@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "kr0Z3A0gu5tQg0k79/ngE2kz63b02z4lckXjuzO4ggva3gGhOUJ2hlQbo92e1vkqlhyTBjXULkc20u6aWBgdhw==",
+  "success": true,
+  "projectFilePath": "D:\\Documents\\kylescudder\\kylescudder.co.uk.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\scud1\\.nuget\\packages\\microsoft.aspnetcore.blazor.httpclient\\3.2.0-preview3.20168.3\\microsoft.aspnetcore.blazor.httpclient.3.2.0-preview3.20168.3.nupkg.sha512",
+    "C:\\Users\\scud1\\.nuget\\packages\\octokit\\0.50.0\\octokit.0.50.0.nupkg.sha512",
+    "C:\\Users\\scud1\\.nuget\\packages\\system.text.json\\4.7.1\\system.text.json.4.7.1.nupkg.sha512",
+    "C:\\Users\\scud1\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\5.0.2\\microsoft.netcore.app.runtime.win-x86.5.0.2.nupkg.sha512",
+    "C:\\Users\\scud1\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\5.0.2\\microsoft.windowsdesktop.app.runtime.win-x86.5.0.2.nupkg.sha512",
+    "C:\\Users\\scud1\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\5.0.2\\microsoft.aspnetcore.app.runtime.win-x86.5.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
