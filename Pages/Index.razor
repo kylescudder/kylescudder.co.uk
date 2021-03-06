@@ -21,18 +21,18 @@
 	<div class="row pt-4">
 		@if (Repos.Count == 0) {
 			<div class="Box box-shadow col mx-auto text-center">
-						<div class="Box-row">
-							<code class="text-gray">I have hit the rate limit for GitHubs API, guess this site it more popular that I thought! <p class="emojiFontSize">😊</p></code>
-							<code class="text-gray">Until I can sort out OctoKit OAuth just use the link below to see my repos:</code>
-							<a name="Go to the repo" class="btn btn-primary btn-block" href="https://github.com/kylescudder?tab=repositories">
-								Go to the repo
-							</a>
-						</div>
-					</div>
+				<div class="Box-row">
+					<code class="text-gray">I have hit the rate limit for GitHubs API, guess this site it more popular that I thought! <p class="emojiFontSize">😊</p></code>
+					<code class="text-gray">Until I can sort out OctoKit OAuth just use the link below to see my repos:</code>
+					<a name="Go to the repo" class="btn btn-primary btn-block" href="https://github.com/kylescudder?tab=repositories">
+						Go to the repo
+					</a>
+				</div>
+			</div>
 		} else {
 			@foreach (var repo in Repos)
 			{
-				<div class="col pt-2">
+				<div class="col pt-2 pb-2">
 					<div class="Box box-shadow">
 						<div class="Box-row">
 							<h3 class="m-0">
@@ -47,6 +47,11 @@
 						<div class="Box-row">
 							<a name="Go to the repo" class="btn btn-primary btn-block" href=@repo.url>
 								Go to the repo
+							</a>
+						</div>
+						<div class="Box-row">
+							<a name="Go to the site" class="btn btn-primary btn-block" href=@repo.homepage>
+								Go to the site
 							</a>
 						</div>
 					</div>
@@ -66,22 +71,9 @@
 	{
 		var client = new GitHubClient(new Octokit.ProductHeaderValue("kylescudder"));
 		try {
-				@* var list = new List<string> { "DatePot", "JSP", "Recipe-Saver" }; *@
+				var list = new List<string> { "DatePot", "JSP", "Recipe-Saver" };
 
-				XmlSerializer serializer = new XmlSerializer(typeof(List<string>));
-
-				using(FileStream stream = File.OpenWrite("repos"))
-				{
-					List<string> list = new List<string>();
-					serializer.Serialize(stream, list);
-				}
-				List<string> dezerializedList = new List<string>();
-				using(FileStream stream = File.OpenRead("repos"))
-				{
-					dezerializedList = (List<string>)serializer.Deserialize(stream);
-				}
-
-				foreach (var items in dezerializedList)
+				foreach (var items in list)
 				{
 					var Repositories = await client.Repository.Get("kylescudder", items);
 					Repos.Add(new Repos()
@@ -89,7 +81,8 @@
 						id = Repositories.Id,
 						name = Repositories.Name,
 						description = Repositories.Description,
-						url = Repositories.HtmlUrl
+						url = Repositories.HtmlUrl,
+						homepage = Repositories.Homepage
 					});
 				};
 		} catch(Exception ex) {
