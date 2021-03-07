@@ -1,5 +1,5 @@
 @using Octokit
-@using System.Xml.Serialization
+@using System.Xml;
 @using System.IO
 @inject NavigationManager NavigationManager
 @page "/"
@@ -71,8 +71,25 @@
 	{
 		var client = new GitHubClient(new Octokit.ProductHeaderValue("kylescudder"));
 		try {
-				var list = new List<string> { "DatePot", "JSP", "Recipe-Saver" };
+				var list = new List<string>();
+				XmlReaderSettings settings = new XmlReaderSettings();
+				settings.IgnoreWhitespace = true;
 
+				using (var fileStream = File.OpenText("repos.xml"))
+				using(XmlReader reader = XmlReader.Create(fileStream, settings)) 
+				{
+					while(reader.Read())
+					{
+						switch(reader.NodeType)
+						{
+							case XmlNodeType.Text:
+							list.Add(reader.Value);
+								break;
+							default:
+								break;
+						}
+					}
+				}
 				foreach (var items in list)
 				{
 					var Repositories = await client.Repository.Get("kylescudder", items);
@@ -84,7 +101,7 @@
 						url = Repositories.HtmlUrl,
 						homepage = Repositories.Homepage
 					});
-				};
+				}; 
 		} catch(Exception ex) {
 			Console.WriteLine(ex);
 		}
