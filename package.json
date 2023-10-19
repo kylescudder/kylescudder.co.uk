@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@octokit/auth-basic": "^1.4.8",
+    "@octokit/core": "^5.0.1",
+    "@octokit/rest": "^20.0.2",
     "react": "^18",
     "react-dom": "^18",
     "next": "13.5.5"
