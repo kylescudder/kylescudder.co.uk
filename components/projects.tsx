@@ -2,6 +2,7 @@
 
 import GitHubRepository from "@/lib/models/GitHubRepository";
 import { useRouter } from "next/navigation";
+import Button from "./button";
 
 export default function Project(props: { repo: GitHubRepository }) {
 	const router = useRouter();
@@ -16,18 +17,8 @@ export default function Project(props: { repo: GitHubRepository }) {
       </div>
       <p className="mb-4">{props.repo.description}</p>
       <div className="mb-2">
-        <button
-          className="w-full bg-purple-900 text-white rounded-xl py-2 px-3 mb-2"
-          onClick={() => handleClick(props.repo.homepage)}
-        >
-          Go to the site
-        </button>
-        <button
-          className="w-full bg-purple-900 text-white rounded-xl py-2 px-3"
-          onClick={() => handleClick(props.repo.git_url)}
-        >
-          Go to the repo
-        </button>
+        <Button text="Go to the site" url={props.repo.homepage} />
+        <Button text="Go to the repo" url={props.repo.git_url} />
       </div>
     </div>
   );
