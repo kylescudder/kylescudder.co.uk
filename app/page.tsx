@@ -4,6 +4,7 @@ import { GitHubRepository } from "@/lib/models/GitHubRepository";
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import Portfolio from '@/components/portfolio';
+import Connect from '@/components/connect';
 
 export default async function Home() {
   const gitHubRepository: GitHubRepository[] = await getRepositories();
@@ -29,8 +30,9 @@ export default async function Home() {
               a love for coding and solving complex problems.
             </p>
           </section>
+          <Portfolio gitHubRepository={gitHubRepository} />
+          <Connect />
         </div>
-        <Portfolio gitHubRepository={gitHubRepository} />
         <Footer />
       </div>
     </main>
