@@ -7,6 +7,7 @@ interface Project {
   title: string,
   description: string;
 }
+import Header from '@/components/header';
 import Footer from '@/components/footer';
 
 export default async function Home() {
@@ -23,13 +24,7 @@ export default async function Home() {
             href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
           />
         </Head>
-
-        {/* Header */}
-        <header className="bg-blue-500 text-white p-4">
-          <h1 className="text-2xl font-semibold">Kyle Scudder</h1>
-          <p className="text-sm">Backend Developer</p>
-        </header>
-
+        <Header />
         {/* Main Content */}
         <div className="container mx-auto p-4">
           <section className="bg-gray-900 rounded p-4 shadow">
