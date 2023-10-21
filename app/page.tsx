@@ -1,12 +1,6 @@
 import Head from 'next/head';
-import Image from 'next/image'
-import Project from '@/components/projects';
 import { getRepositories } from "@/lib/actions/repo.action";
 import { GitHubRepository } from "@/lib/models/GitHubRepository";
-interface Project {
-  title: string,
-  description: string;
-}
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import Portfolio from '@/components/portfolio';
