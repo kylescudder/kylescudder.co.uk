@@ -16,7 +16,7 @@ export default async function Home() {
 
   return (
     <main className="flex w-full min-h-screen flex-col items-center justify-between">
-      <div className="bg-gray-900">
+      <div className="bg-gray-900 w-full">
         {/* Head section for metadata */}
         <Head>
           <title>Kyle Scudder - Backend Developer</title>
