@@ -9,6 +9,7 @@ interface Project {
 }
 import Header from '@/components/header';
 import Footer from '@/components/footer';
+import Portfolio from '@/components/portfolio';
 
 export default async function Home() {
   const gitHubRepository: GitHubRepository[] = await getRepositories();
@@ -34,22 +35,8 @@ export default async function Home() {
               a love for coding and solving complex problems.
             </p>
           </section>
-
-          {/* Portfolio Section */}
-          <section className="mt-4 bg-gray-900 rounded p-4 shadow">
-            <h2 className="text-xl font-semibold mb-4">My Projects</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {gitHubRepository.map((project) => {
-                return (
-                  <Project
-                    key={project.id}
-                    repo={project}
-                  />
-                );
-              })}
-            </div>
-          </section>
         </div>
+        <Portfolio gitHubRepository={gitHubRepository} />
         <Footer />
       </div>
     </main>
