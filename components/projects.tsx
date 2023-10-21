@@ -1,15 +1,7 @@
-"use client"
-
 import GitHubRepository from "@/lib/models/GitHubRepository";
-import { useRouter } from "next/navigation";
 import Button from "./button";
 
 export default function Project(props: { repo: GitHubRepository }) {
-	const router = useRouter();
-
-	const handleClick = (url: string) => {
-		router.push(url)
-	}
 	return (
     <div className="bg-gray-800 border p-4 rounded-lg text-white">
       <div className="border-b border-gray-700 mb-2 pb-2">
