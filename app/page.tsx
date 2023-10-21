@@ -7,6 +7,7 @@ interface Project {
   title: string,
   description: string;
 }
+import Footer from '@/components/footer';
 
 export default async function Home() {
   const gitHubRepository: GitHubRepository[] = await getRepositories();
@@ -54,11 +55,7 @@ export default async function Home() {
             </div>
           </section>
         </div>
-
-        {/* Footer */}
-        <footer className="bg-blue-500 text-white text-center p-4">
-          &copy; 2023 Kyle Scudder
-        </footer>
+        <Footer />
       </div>
     </main>
   );
