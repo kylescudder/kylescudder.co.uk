@@ -9,8 +9,8 @@ export default function Footer() {
   const currentDate = new Date();
 
   return (
-    <footer className="bg-seance-900 text-white flex p-4 px-28 justify-between">
-      <div className="container">
+    <footer className="bg-seance-900 text-white flex justify-between">
+      <div className="container mx-auto p-4">
         <div className="flex-grow">
           &copy; {currentDate.getFullYear()} Kyle Scudder
         </div>
