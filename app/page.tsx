@@ -23,7 +23,7 @@ export default async function Home() {
         <Header />
         {/* Main Content */}
         <div className="container mx-auto p-4">
-          <section className="bg-gray-900 rounded p-4 shadow">
+          <section className="rounded">
             <h2 className="text-xl font-semibold mb-4">About Me</h2>
             <p>
               Welcome to my portfolio! I am a passionate backend developer with
