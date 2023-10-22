@@ -8,7 +8,7 @@ import SocialButton from "./socialButton";
 
 export default function Connect() {
   return (
-    <section className="flex flex-col">
+    <section id="social" className="flex flex-col">
       <div className="w-full justify-center flex mt-2 mb-1">
         <div className="text-4xl">FIND ME ON</div>
       </div>
