@@ -1,73 +1,64 @@
-import { IconGitBranch, IconSocial } from "@tabler/icons-react";
+"use client"
 
-export default function Nav() {
+import {
+  IconGitBranch,
+  IconLetterX,
+  IconMenu2,
+  IconSocial,
+} from "@tabler/icons-react";
+import Link from "next/link";
+import { useState } from "react";
+
+function NavBar() {
+  const [navbar, setNavbar] = useState(false);
+
   return (
-    <nav>
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div className="relative flex h-16 items-center justify-between">
-          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-            <button
-              type="button"
-              className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-              aria-controls="mobile-menu"
-              aria-expanded="false"
-            >
-              {/* Your button contents */}
-            </button>
-          </div>
-          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-end">
-            {" "}
-            {/* Adjusted this line */}
-            <div className="hidden sm:ml-6 sm:block">
-              <div className="flex space-x-4">
-                <a
-                  href="#portfolio"
-                  className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium 
-									after:absolute after:w-full after:scale-x-0 after:h-1 after:rounded-lg
-									after:bottom-2 after:left-0 after:bg-seance-600 after:content-['']
-									after:bg-right-bottom after:ease-out after:duration-300
-									after:transition hover:after:scale-x-100 hover:after:origin-bottom-left"
-                  aria-current="page"
+    <div>
+      <nav className="w-full fixed top-0 left-0 right-0 z-10 contents">
+        <div className="container justify-between px-4 mx-auto md:items-center md:flex">
+          <div>
+            <div className="flex items-center justify-between pt-1 md:py-5 md:block">
+              {/* HAMBURGER BUTTON FOR MOBILE */}
+              <div className="md:hidden">
+                <button
+                  className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
+                  onClick={() => setNavbar(!navbar)}
                 >
-                  <IconGitBranch />
-                  Projects
-                </a>
-                <a
-                  href="#social"
-                  className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium 
-									after:absolute after:w-full after:scale-x-0 after:h-1 after:rounded-lg
-									after:bottom-0 after:left-0 after:bg-seance-600
-									after:bg-right-bottom after:ease-out after:duration-300
-									after:transition hover:after:scale-x-100 hover:after:origin-bottom-left"
-                >
-                  <IconSocial />
-                  Socials
-                </a>
+                  {navbar ? <IconLetterX /> : <IconMenu2 />}
+                </button>
               </div>
             </div>
           </div>
+          <div>
+            <div
+              className={`flex-1 justify-self-center py-3 mt-8 md:block md:pb-0 md:mt-0 ${
+                navbar ? "p-12 md:p-0 block" : "hidden"
+              }`}
+            >
+              <ul className="h-screen md:h-auto items-center justify-center md:flex ">
+                <li className="pb-6 text-xl text-white py-2 text-center border-b-2 md:border-b-0  hover:bg-purple-900  border-purple-900  md:hover:text-purple-600 md:hover:bg-transparent">
+                  <Link href="#portfolio" onClick={() => setNavbar(!navbar)}>
+                    <div className="flex items-center">
+                      <IconGitBranch />
+                      <span className="ml-2">Projects</span>
+                    </div>
+                  </Link>
+                </li>
+                <li className="pb-6 text-xl text-white py-2 md:ml-6 text-center  border-b-2 md:border-b-0  hover-bg-purple-600  border-purple-900  md:hover-text-purple-600 md:hover-bg-transparent">
+                  <Link href="#social" onClick={() => setNavbar(!navbar)}>
+                    <div className="flex items-center">
+                      <IconSocial />
+                      <span className="ml-2">Socials</span>
+                    </div>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className="sm:hidden" id="mobile-menu">
-        <div className="space-y-1 px-2 pb-3 pt-2">
-          <a
-            href="#portfolio"
-            className="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
-            aria-current="page"
-          >
-            <IconGitBranch />
-            Projects
-          </a>
-          <a
-            href="#social"
-            className="text-gray-300 hover-bg-gray-700 hover-text-white block rounded-md px-3 py-2 text-base font-medium"
-          >
-            <IconSocial />
-            Socials
-          </a>
-        </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
   );
 }
+
+export default NavBar;
