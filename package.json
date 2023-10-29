@@ -12,7 +12,7 @@
     "@octokit/auth-basic": "^1.4.8",
     "@octokit/core": "^5.0.1",
     "@octokit/rest": "^20.0.2",
-    "@tabler/icons-react": "^2.39.0",
+    "@tabler/icons-react": "^2.40.0",
     "next": "13.5.5",
     "react": "^18",
     "react-dom": "^18"
