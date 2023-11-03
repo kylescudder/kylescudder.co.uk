@@ -13,7 +13,7 @@
     "@octokit/core": "^5.0.1",
     "@octokit/rest": "^20.0.2",
     "@tabler/icons-react": "^2.40.0",
-    "next": "14.0.0",
+    "next": "14.0.1",
     "react": "^18",
     "react-dom": "^18"
   },
