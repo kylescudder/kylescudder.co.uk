@@ -15,10 +15,6 @@ export default async function Home() {
         {/* Head section for metadata */}
         <Head>
           <title>Kyle Scudder - Backend Developer</title>
-          <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-          />
         </Head>
         <Header />
         {/* Main Content */}
