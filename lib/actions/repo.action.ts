@@ -15,9 +15,7 @@ export async function getRepositories(): Promise<any[]> {
 
 getRepositories()
   .then((repositories) => {
-    console.log("Repositories:");
     repositories.forEach((repo) => {
-      console.log(repo.name);
     });
   })
   .catch((error) => {
