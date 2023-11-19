@@ -40,8 +40,8 @@ export default async function Home() {
           <Portfolio gitHubRepository={gitHubRepository} />
           <Connect />
         </div>
-        <Footer />
       </div>
+      <Footer />
     </main>
   );
 }
