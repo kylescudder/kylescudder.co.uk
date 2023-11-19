@@ -5,6 +5,7 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 import Portfolio from '@/components/portfolio';
 import Connect from '@/components/connect';
+import Type from '@/components/type'
 
 export default async function Home() {
   const gitHubRepository: GitHubRepository[] = await getRepositories();
@@ -30,6 +31,7 @@ export default async function Home() {
                 I'M
                 <strong className="text-seance-500"> Kyle Scudder </strong>
               </h1>
+          <Type />
             <p>
               Welcome to my portfolio! I am a passionate backend developer with
               a love for coding and solving complex problems.
