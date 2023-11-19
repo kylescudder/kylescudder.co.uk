@@ -4,7 +4,10 @@ import React from "react";
 import Typewriter from "typewriter-effect";
 
 function Type() {
-  return (
+	return (
+		<div
+			className="text-5xl font-semibold mb-4"
+		>
     <Typewriter
       options={{
 				strings: [
@@ -20,8 +23,9 @@ function Type() {
         autoStart: true,
         loop: true,
         deleteSpeed: 50,
-      }}
-    />
+			}}
+			/>
+			</div>
   );
 }
 
