@@ -20,7 +20,16 @@ export default async function Home() {
         {/* Main Content */}
         <div className="container mx-auto p-4">
           <section className="rounded">
-            <h2 className="text-xl font-semibold mb-4">About Me</h2>
+            <h2 className="text-5xl font-semibold mb-4">
+              Hi there!
+              <span className="wave" role="img" aria-labelledby="wave">
+                👋🏻
+              </span>
+            </h2>
+             <h1 className="text-5xl font-semibold mb-4">
+                I'M
+                <strong className="text-seance-500"> Kyle Scudder </strong>
+              </h1>
             <p>
               Welcome to my portfolio! I am a passionate backend developer with
               a love for coding and solving complex problems.
