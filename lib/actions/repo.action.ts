@@ -1,23 +1,23 @@
-import { Octokit } from "@octokit/rest";
+import { Octokit } from '@octokit/rest'
 
-export async function getRepositories(): Promise<any[]> {
-  const octokit = new Octokit({
-    auth: process.env.GITHUB_AUTH_TOKEN,
-  });
+export async function getRepositories (): Promise<any[]> {
+	const octokit = new Octokit({
+		auth: process.env.GITHUB_AUTH_TOKEN
+	})
 
-  const orgName = "Kyle-Scudder";
-  const { data: repos } = await octokit.repos.listForOrg({
-    org: orgName,
-  });
+	const orgName = 'Kyle-Scudder'
+	const { data: repos } = await octokit.repos.listForOrg({
+		org: orgName
+	})
 
-  return repos;
+	return repos
 }
 
 getRepositories()
-  .then((repositories) => {
-    repositories.forEach((repo) => {
-    });
-  })
-  .catch((error) => {
-    console.error("Error:", error);
-  });
+	.then((repositories) => {
+		repositories.forEach((repo) => {
+		})
+	})
+	.catch((error) => {
+		console.error('Error:', error)
+	})
