@@ -1,6 +1,7 @@
 'use client'
 
 import {
+	IconBrandReact,
 	IconGitBranch,
 	IconLetterX,
 	IconMenu2,
@@ -15,7 +16,7 @@ function NavBar (): JSX.Element {
 	return (
 		<div>
 			<nav className="w-full fixed top-0 left-0 right-0 z-10 contents">
-				<div className="container justify-between px-4 mx-auto md:items-center md:flex">
+				<div className="justify-between px-4 mx-auto md:items-center md:flex">
 					<div>
 						<div className="flex items-center justify-between pt-1 md:py-5 md:block">
 							{/* HAMBURGER BUTTON FOR MOBILE */}
@@ -54,6 +55,16 @@ function NavBar (): JSX.Element {
 										<div className="flex items-center">
 											<IconSocial />
 											<span className="ml-2">Socials</span>
+										</div>
+									</Link>
+								</li>
+								<li className="pb-6 text-xl text-white py-2 md:ml-6 text-center border-b-2
+								md:border-b-0  hover-bg-purple-600  border-purple-900
+								md:hover-text-purple-600 md:hover-bg-transparent">
+									<Link href="#tools" onClick={() => { setNavbar(!navbar) }}>
+										<div className="flex items-center">
+											<IconBrandReact />
+											<span className="ml-2">Tools</span>
 										</div>
 									</Link>
 								</li>

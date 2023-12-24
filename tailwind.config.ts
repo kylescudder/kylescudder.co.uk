@@ -33,6 +33,18 @@ const config: Config = {
 			},
 			backgroundPosition: {
 				'right-center': 'right center'
+			},
+			minWidth: {
+				80: '80px'
+			},
+			minHeight: {
+				80: '80px'
+			},
+			maxWidth: {
+				80: '80px'
+			},
+			maxHeight: {
+				80: '80px'
 			}
 		}
 	},

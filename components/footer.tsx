@@ -10,13 +10,13 @@ export default function Footer (): JSX.Element {
 	const currentDate = new Date()
 
 	return (
-		<footer className="bg-black text-white flex justify-between shadow-inner w-full container
-		mx-auto lg:px-24">
-			<div className="container mx-auto p-4 flex items-center">
+		<footer className="bg-black text-white flex justify-between shadow-inner w-full
+		mx-auto lg:px-72">
+			<div className="mx-auto p-4 flex items-center">
 				<div className="flex-grow">
           &copy; {currentDate.getFullYear()} Kyle Scudder
 				</div>
-				<div className="flex space-x-2">
+				<div className="flex space-x-2 ml-10">
 					<a href="https://www.github.com/kylescudder" target="_blank" rel="noreferrer">
 						<IconBrandGithub />
 					</a>

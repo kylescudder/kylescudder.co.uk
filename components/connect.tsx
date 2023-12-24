@@ -9,12 +9,12 @@ import SocialButton from './socialButton'
 
 export default function Connect (): JSX.Element {
 	return (
-		<section id="social" className="flex flex-col">
+		<section id="social" className="flex flex-col mb-20">
 			<div className="w-full justify-center flex mt-2 mb-1">
-				<div className="text-4xl">FIND ME ON</div>
+				<div className="text-4xl">GET IN TOUCH</div>
 			</div>
 			<div className="w-full justify-center flex mt-1 mb-1">
-				<div className="text-lg">Feel free to connect with me</div>
+				<div className="text-lg">Feel free to connect with me on:</div>
 			</div>
 			<div className="w-full justify-center flex mt-1 mb-2">
 				<SocialButton
