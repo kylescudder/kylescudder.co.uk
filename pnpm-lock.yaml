@@ -18,11 +18,11 @@ dependencies:
     specifier: ^2.45.0
     version: 2.45.0(react@18.2.0)
   '@tsparticles/engine':
-    specifier: ^3.0.3
-    version: 3.0.3
+    specifier: ^3.1.0
+    version: 3.1.0
   '@tsparticles/react':
     specifier: ^3.0.0
-    version: 3.0.0(@tsparticles/engine@3.0.3)(react-dom@18.2.0)(react@18.2.0)
+    version: 3.0.0(@tsparticles/engine@3.1.0)(react-dom@18.2.0)(react@18.2.0)
   eslint-config-next:
     specifier: 14.0.4
     version: 14.0.4(eslint@8.56.0)(typescript@5.3.3)
@@ -474,19 +474,19 @@ packages:
     resolution: {integrity: sha512-J10UDghOni9wlrj5CpKAzychDCABCKYq897mGg0wGFsd+tYLaUdz0dt/HZeGnV8gZJo0hIiTPLGwBp5EW42Qsg==}
     dev: false
 
-  /@tsparticles/engine@3.0.3:
-    resolution: {integrity: sha512-1yGci0gMF9uBIVPXBYekORq8UYf8Twz3Xy/ZWWVCFWeVh90Amdns3fad2pf2HicZe8HZqpa1cN2Io1MOHAlO8w==}
+  /@tsparticles/engine@3.1.0:
+    resolution: {integrity: sha512-sQR79T76Y+0bdwMOQgJxA5jC+Na2XGJ8wABS4NsS3oYqD/Bdh7pwHFdoMkQu86uRrsvH5jdpqlHCMmZb7laXIQ==}
     requiresBuild: true
     dev: false
 
-  /@tsparticles/react@3.0.0(@tsparticles/engine@3.0.3)(react-dom@18.2.0)(react@18.2.0):
+  /@tsparticles/react@3.0.0(@tsparticles/engine@3.1.0)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-hjGEtTT1cwv6BcjL+GcVgH++KYs52bIuQGW3PWv7z3tMa8g0bd6RI/vWSLj7p//NZ3uTjEIeilYIUPBh7Jfq/Q==}
     peerDependencies:
       '@tsparticles/engine': ^3.0.2
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
-      '@tsparticles/engine': 3.0.3
+      '@tsparticles/engine': 3.1.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
