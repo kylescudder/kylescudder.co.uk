@@ -12,7 +12,7 @@
     "@octokit/auth-basic": "^1.4.8",
     "@octokit/core": "^6.0.1",
     "@octokit/rest": "^20.0.2",
-    "@tabler/icons-react": "^2.47.0",
+    "@tabler/icons-react": "^3.1.0",
     "@tsparticles/engine": "^3.3.0",
     "@tsparticles/react": "^3.0.0",
     "eslint-config-next": "14.1.0",
