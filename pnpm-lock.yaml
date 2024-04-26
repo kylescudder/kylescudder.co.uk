@@ -16,28 +16,28 @@ dependencies:
     version: 20.1.0
   '@tabler/icons-react':
     specifier: ^3.1.0
-    version: 3.1.0(react@18.2.0)
+    version: 3.1.0(react@18.3.0)
   '@tsparticles/engine':
     specifier: ^3.3.0
     version: 3.3.0
   '@tsparticles/react':
     specifier: ^3.0.0
-    version: 3.0.0(@tsparticles/engine@3.3.0)(react-dom@18.2.0)(react@18.2.0)
+    version: 3.0.0(@tsparticles/engine@3.3.0)(react-dom@18.2.0)(react@18.3.0)
   eslint-config-next:
     specifier: 14.1.4
     version: 14.1.4(eslint@8.57.0)(typescript@5.4.4)
   next:
     specifier: 14.1.4
-    version: 14.1.4(react-dom@18.2.0)(react@18.2.0)
+    version: 14.1.4(react-dom@18.2.0)(react@18.3.0)
   react:
     specifier: ^18
-    version: 18.2.0
+    version: 18.3.0
   react-dom:
     specifier: ^18
-    version: 18.2.0(react@18.2.0)
+    version: 18.2.0(react@18.3.0)
   typewriter-effect:
     specifier: ^2.21.0
-    version: 2.21.0(react-dom@18.2.0)(react@18.2.0)
+    version: 2.21.0(react-dom@18.2.0)(react@18.3.0)
 
 devDependencies:
   '@types/node':
@@ -45,7 +45,7 @@ devDependencies:
     version: 20.12.7
   '@types/react':
     specifier: ^18
-    version: 18.2.75
+    version: 18.3.0
   '@types/react-dom':
     specifier: ^18
     version: 18.2.24
@@ -541,13 +541,13 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@tabler/icons-react@3.1.0(react@18.2.0):
+  /@tabler/icons-react@3.1.0(react@18.3.0):
     resolution: {integrity: sha512-k/WTlax2vbj/LpxvaJ+BmaLAAhVUgyLj4Ftgaczz66tUSNzqrAZXCFdOU7cRMYPNVBqyqE2IdQd2rzzhDEJvkw==}
     peerDependencies:
       react: '>= 16'
     dependencies:
       '@tabler/icons': 3.1.0
-      react: 18.2.0
+      react: 18.3.0
     dev: false
 
   /@tabler/icons@3.1.0:
@@ -559,7 +559,7 @@ packages:
     requiresBuild: true
     dev: false
 
-  /@tsparticles/react@3.0.0(@tsparticles/engine@3.3.0)(react-dom@18.2.0)(react@18.2.0):
+  /@tsparticles/react@3.0.0(@tsparticles/engine@3.3.0)(react-dom@18.2.0)(react@18.3.0):
     resolution: {integrity: sha512-hjGEtTT1cwv6BcjL+GcVgH++KYs52bIuQGW3PWv7z3tMa8g0bd6RI/vWSLj7p//NZ3uTjEIeilYIUPBh7Jfq/Q==}
     peerDependencies:
       '@tsparticles/engine': ^3.0.2
@@ -567,8 +567,8 @@ packages:
       react-dom: '>=16.8.0'
     dependencies:
       '@tsparticles/engine': 3.3.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
+      react: 18.3.0
+      react-dom: 18.2.0(react@18.3.0)
     dev: false
 
   /@types/btoa-lite@1.0.1:
@@ -595,11 +595,11 @@ packages:
   /@types/react-dom@18.2.24:
     resolution: {integrity: sha512-cN6upcKd8zkGy4HU9F1+/s98Hrp6D4MOcippK4PoE8OZRngohHZpbJn1GsaDLz87MqvHNoT13nHvNqM9ocRHZg==}
     dependencies:
-      '@types/react': 18.2.75
+      '@types/react': 18.3.0
     dev: true
 
-  /@types/react@18.2.75:
-    resolution: {integrity: sha512-+DNnF7yc5y0bHkBTiLKqXFe+L4B3nvOphiMY3tuA5X10esmjqk7smyBZzbGTy2vsiy/Bnzj8yFIBL8xhRacoOg==}
+  /@types/react@18.3.0:
+    resolution: {integrity: sha512-DiUcKjzE6soLyln8NNZmyhcQjVv+WsUIFSqetMN0p8927OztKT4VTfFTqsbAi5oAGIcgOmOajlfBqyptDDjZRw==}
     dependencies:
       '@types/prop-types': 15.7.9
       csstype: 3.1.2
@@ -2427,7 +2427,7 @@ packages:
   /natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
-  /next@14.1.4(react-dom@18.2.0)(react@18.2.0):
+  /next@14.1.4(react-dom@18.2.0)(react@18.3.0):
     resolution: {integrity: sha512-1WTaXeSrUwlz/XcnhGTY7+8eiaFvdet5z9u3V2jb+Ek1vFo0VhHKSAIJvDWfQpttWjnyw14kBeq28TPq7bTeEQ==}
     engines: {node: '>=18.17.0'}
     hasBin: true
@@ -2448,9 +2448,9 @@ packages:
       caniuse-lite: 1.0.30001600
       graceful-fs: 4.2.11
       postcss: 8.4.31
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      styled-jsx: 5.1.1(react@18.2.0)
+      react: 18.3.0
+      react-dom: 18.2.0(react@18.3.0)
+      styled-jsx: 5.1.1(react@18.3.0)
     optionalDependencies:
       '@next/swc-darwin-arm64': 14.1.4
       '@next/swc-darwin-x64': 14.1.4
@@ -2756,21 +2756,21 @@ packages:
       performance-now: 2.1.0
     dev: false
 
-  /react-dom@18.2.0(react@18.2.0):
+  /react-dom@18.2.0(react@18.3.0):
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
     peerDependencies:
       react: ^18.2.0
     dependencies:
       loose-envify: 1.4.0
-      react: 18.2.0
+      react: 18.3.0
       scheduler: 0.23.0
     dev: false
 
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
-  /react@18.2.0:
-    resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
+  /react@18.3.0:
+    resolution: {integrity: sha512-RPutkJftSAldDibyrjuku7q11d3oy6wKOyPe5K1HA/HwwrXcEqBdHsLypkC2FFYjP7bPUa6gbzSBhw4sY2JcDg==}
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
@@ -3053,7 +3053,7 @@ packages:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
     engines: {node: '>=8'}
 
-  /styled-jsx@5.1.1(react@18.2.0):
+  /styled-jsx@5.1.1(react@18.3.0):
     resolution: {integrity: sha512-pW7uC1l4mBZ8ugbiZrcIsiIvVx1UmTfw7UkC3Um2tmfUq9Bhk8IiyEIPl6F8agHgjzku6j0xQEZbfA5uSgSaCw==}
     engines: {node: '>= 12.0.0'}
     peerDependencies:
@@ -3067,7 +3067,7 @@ packages:
         optional: true
     dependencies:
       client-only: 0.0.1
-      react: 18.2.0
+      react: 18.3.0
     dev: false
 
   /sucrase@3.34.0:
@@ -3268,7 +3268,7 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  /typewriter-effect@2.21.0(react-dom@18.2.0)(react@18.2.0):
+  /typewriter-effect@2.21.0(react-dom@18.2.0)(react@18.3.0):
     resolution: {integrity: sha512-Y3VL1fuJpUBj0gS4OTXBLzy1gnYTYaBuVuuO99tGNyTkkub5CXi+b/hsV7Og9fp6HlhogOwWJwgq7iXI5sQlEg==}
     peerDependencies:
       react: ^17.x || ^18.x
@@ -3276,8 +3276,8 @@ packages:
     dependencies:
       prop-types: 15.8.1
       raf: 3.4.1
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
+      react: 18.3.0
+      react-dom: 18.2.0(react@18.3.0)
     dev: false
 
   /unbox-primitive@1.0.2:
