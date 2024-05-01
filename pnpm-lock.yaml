@@ -15,8 +15,8 @@ dependencies:
     specifier: ^20.1.0
     version: 20.1.0
   '@tabler/icons-react':
-    specifier: ^3.1.0
-    version: 3.1.0(react@18.2.0)
+    specifier: ^3.3.0
+    version: 3.3.0(react@18.2.0)
   '@tsparticles/engine':
     specifier: ^3.3.0
     version: 3.3.0
@@ -541,17 +541,17 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@tabler/icons-react@3.1.0(react@18.2.0):
-    resolution: {integrity: sha512-k/WTlax2vbj/LpxvaJ+BmaLAAhVUgyLj4Ftgaczz66tUSNzqrAZXCFdOU7cRMYPNVBqyqE2IdQd2rzzhDEJvkw==}
+  /@tabler/icons-react@3.3.0(react@18.2.0):
+    resolution: {integrity: sha512-Qn1Po+0gErh1zCWlaOdoVoGqeonWfSuiboYgwZBs6PIJNsj7yr3bIa4BkHmgJgtlXLT9LvCzt/RvwlgjxLfjjg==}
     peerDependencies:
       react: '>= 16'
     dependencies:
-      '@tabler/icons': 3.1.0
+      '@tabler/icons': 3.3.0
       react: 18.2.0
     dev: false
 
-  /@tabler/icons@3.1.0:
-    resolution: {integrity: sha512-CpZGyS1IVJKFcv88yZ2sYZIpWWhQ6oy76BQKQ5SF0fGgOqgyqKdBGG/YGyyMW632on37MX7VqQIMTzN/uQqmFg==}
+  /@tabler/icons@3.3.0:
+    resolution: {integrity: sha512-PLVe9d7b59sKytbx00KgeGhQG3N176Ezv8YMmsnSz4s0ifDzMWlp/h2wEfQZ0ZNe8e377GY2OW6kovUe3Rnd0g==}
     dev: false
 
   /@tsparticles/engine@3.3.0:
