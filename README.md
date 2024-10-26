@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+---
 
-## Getting Started
+# Astro Portfolio
 
-First, run the development server:
+This template helps you build a portfolio using Astro, Tailwind CSS, and Shadcn UI.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Design
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![View 1](public/View1.png)
+![View 2](public/View2.png)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Inspiration
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This project was inspired by several outstanding portfolios. Here are some that served as references:
 
-## Learn More
+- [Gianmarco Portfolio](https://gianmarco.xyz/)
+- [Vitesse Portfolio](https://astro-theme-vitesse.netlify.app/)
+- [Gurido Portfolio](https://gurido.vercel.app/)
 
-To learn more about Next.js, take a look at the following resources:
+## Technologies Used
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project utilizes the following technologies:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **Astro**: A modern framework for building fast and efficient websites.
+- **Tailwind CSS**: A utility-first CSS framework for rapid and responsive design.
+- **Shadcn UI**: A collection of accessible and easy-to-use UI components.
+- **React**: For interactive components and advanced functionality.
 
-## Deploy on Vercel
+## Requirements
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Before starting, make sure you have the following requirements installed:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Node.js (version 14 or higher)
+- npm or yarn
+
+## Installation
+
+To install and run the project locally, follow these steps:
+
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/bue221/astro-portfolio.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd astro-portfolio
+   ```
+
+3. Install the dependencies:
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+5. Open your browser and visit `http://localhost:3000` to see your portfolio in action.
+
+## Project Structure
+
+A brief overview of the project structure:
+
+- **/public**: Images and other static files.
+- **/src**: Contains all Astro components and pages.
+- **/styles**: Custom CSS files.
+- **astro.config.mjs**: Main configuration for Astro.
+- **tailwind.config.js**: Configuration for Tailwind CSS.
+
+## Important Considerations
+
+- **Accessibility**: Ensure your portfolio is accessible to all users, including those with disabilities.
+- **SEO**: Optimize your portfolio for search engines by adding meta tags and relevant content.
+- **Performance**: Use modern web development practices to ensure optimal performance, such as lazy loading images and minimizing CSS/JS.
+- **Responsive Design**: Make sure your portfolio looks good on devices of all sizes, from mobile to desktop screens.
+
+This project use Contentful to fetch data from the API. and load your projects section, if you want to use your contentful data add variables to your .env file.
+
+## Contributions
+
+Contributions are welcome! If you have ideas or improvements, please open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
