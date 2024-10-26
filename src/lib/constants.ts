@@ -7,12 +7,12 @@ export const loaderAnimation = [
 ]
 
 export const LINKS = {
-  github: 'https://github.com/bue221',
-  linkedin: 'https://www.linkedin.com/in/bue221/',
-  mail: 'mailto:camiloplaza3@gmail.com',
-  instagram: 'https://www.instagram.com/caj_ink/',
+  github: 'https://github.com/kylescudder',
+  linkedin: 'https://www.linkedin.com/in/kyle-scudder-9417a861/',
+  mail: 'mailto:kyle@kylescudder.co.uk',
+  instagram: 'https://www.instagram.com/scudderkyle/',
   medium: 'https://ladvace.medium.com/',
-  discord: 'https://discordapp.com/users/163300027618295808',
+  discord: 'https://discordapp.com/users/littlescud',
 }
 
 // Global
@@ -83,11 +83,11 @@ export const STUDIES = [
 
 export const EXPERIENCE = [
   {
-    company: 'Straico',
-    location: 'Bogotá D C, Colombia',
-    position: 'Software Engineer',
-    start: '2021',
-    link: 'https://straico.com/',
+    company: 'Crimson Tide',
+    location: 'Royal Tunbridge Wells, Kent, United Kingdom',
+    position: 'Back End Develop',
+    start: 'September 2023',
+    link: 'https://mpro5.com/',
     end: 'Current',
     tasks: [
       'Integration IA services with react and tailwind css',
@@ -95,12 +95,12 @@ export const EXPERIENCE = [
     ],
   },
   {
-    company: 'Spot2',
-    location: 'Mexico City, Mexico',
-    position: 'Software Engineer',
-    link: 'https://spot2.mx/',
-    start: '2021',
-    end: 'Current',
+    company: 'Paloma Systems Ltd',
+    location: 'Brighton, East Sussex, United Kingdom',
+    position: 'Lead Software Develop',
+    link: 'https://paloma.co.uk/',
+    start: 'September 2022',
+    end: 'September 2023',
     tasks: [
       'Development of the Spot2 platform with the use of React, Redux, and Material UI',
       'Development map with the use of Google Maps API',
@@ -109,52 +109,15 @@ export const EXPERIENCE = [
     ],
   },
   {
-    company: 'Imaginamos',
-    link: 'https://imaginamos.com/',
-    location: 'Bogotá D C, Colombia',
-    position: 'Frontend developer',
-    start: '2021',
-    end: '2021',
+    company: 'Paloma Systems Ltd',
+    link: 'https://paloma.co.uk/',
+    location: 'Brighton, East Sussex, United Kingdom',
+    position: '.NET Developer',
+    start: 'November 2016',
+    end: 'September 2022',
     tasks: [
       'Development of the Imaginamos platform with the use of React, Redux, and Material UI',
       'Work in ETB project with the use of React, Redux, and Material UI',
     ],
-  },
-  {
-    company: 'INETUM',
-    location: 'Bogotá D C, Colombia',
-    position: 'Frontend developer',
-    start: '2021',
-    link: 'https://www.inetum.com/es',
-    end: '2021',
-    tasks: [
-      'Support in the QA area and bug review',
-      'Use of SCRUM methodology',
-      'Claro projects with the use of frameworks and libraries such as react and angular',
-      'Use of redux toolkit as aproposal which allowed a shorter development time when using this tool',
-    ],
-  },
-  {
-    company: 'S I G',
-    location: 'Bogotá D C, Colombia',
-    position: 'Software developer',
-    start: '2021',
-    end: '2021',
-    tasks: [
-      'Development of a dashboard with react admin and chartjs for managing and entering information',
-    ],
-  },
-  {
-    company: 'BOOKII',
-    location: 'Bogotá D C, Colombia',
-    position: 'Software developer',
-    start: '2019',
-    end: '2021',
-    tasks: [
-      'Productive collaborationwiththebackendteamforthecreationofthe conversationalclubs',
-      'Effective coding of conversational clubs following design guide lines and using the Redux statemanager',
-      'Creation of the Bookii page in Spanish and change of texts in cms',
-      'Generation of static posts using Gatsby and the Contentful cms for the Bookii blog',
-    ],
-  },
+  }
 ]
