@@ -1,4 +1,4 @@
-import type { Site, Page } from './types'
+import type { Links } from './types'
 
 export const loaderAnimation = [
   '.loader',
@@ -16,26 +16,26 @@ export const LINKS = {
 }
 
 // ProjectsPage
-export const PROJECTS = [
+export const PROJECTS: Links = [
   {
-    title: 'The Date Pot',
-    link: 'https://github/com/kylescudder/the-date-pot'
+    TEXT: 'The Date Pot',
+    HREF: 'https://github/com/kylescudder/the-date-pot'
   },
   {
-    title: 'Big Day Planner',
-    link: 'https://github/com/kylescudder/big-day-planner'
+    TEXT: 'Big Day Planner',
+    HREF: 'https://github/com/kylescudder/big-day-planner'
   },
   {
-    title: 'dotfiles',
-    link: 'https://github/com/kylescudder/dotfiles'
+    TEXT: 'dotfiles',
+    HREF: 'https://github/com/kylescudder/dotfiles'
   },
   {
-    title: 'scripts',
-    link: 'https://github/com/kylescudder/scripts'
+    TEXT: 'scripts',
+    HREF: 'https://github/com/kylescudder/scripts'
   },
   {
-    title: 'Kyle Scudder',
-    link: 'https://github/com/kylescudder/kylescudder.co.uk'
+    TEXT: 'Kyle Scudder',
+    HREF: 'https://github/com/kylescudder/kylescudder.co.uk'
   },
 ]
 

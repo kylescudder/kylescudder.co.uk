@@ -2,14 +2,15 @@
 import Card from '../Card.astro'
 import { Badge } from '../ui/badge'
 import { PROJECTS } from '../../lib/constants'
+import { Link } from 'contentful/dist/types/types'
 ---
 
-<Card colSpan="md:col-span-1" rowSpan="md:row-span-2" title="">
+<Card colSpan="md:col-span-1" rowSpan="md:row-span-2">
   <div class="mt-2 flex w-full flex-wrap items-center justify-center gap-2">
     {
       PROJECTS.map((project) => (
-        <a href={project.link} target="__blank">
-          <Badge variant="outline">{project.title}</Badge>
+        <a href={project.HREF} target="__blank">
+          <Badge variant="outline">{project.TEXT}</Badge>
         </a>
       ))
     }
