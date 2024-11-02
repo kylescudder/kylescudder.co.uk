@@ -15,69 +15,27 @@ export const LINKS = {
   letterboxd: 'https://letterboxd.com/LITTLESCUD/',
 }
 
-// Global
-export const SITE: Site = {
-  TITLE: 'Astro Sphere',
-  DESCRIPTION:
-    'Welcome to Astro Sphere, a portfolio and blog for designers and developers.',
-  AUTHOR: 'Mark Horn',
-}
-
-// Work Page
-export const WORK: Page = {
-  TITLE: 'Work',
-  DESCRIPTION: 'Places I have worked.',
-}
-
-// Blog Page
-export const BLOG: Page = {
-  TITLE: 'Blog',
-  DESCRIPTION: 'Writing on topics I am passionate about.',
-}
-
-// Projects Page
-export const PROJECTS: Page = {
-  TITLE: 'Projects',
-  DESCRIPTION: 'Recent projects I have worked on.',
-}
-
-// Search Page
-export const SEARCH: Page = {
-  TITLE: 'Search',
-  DESCRIPTION: 'Search all posts and projects by keyword.',
-}
-
-// Study Page
-export const STUDIES = [
+// ProjectsPage
+export const PROJECTS = [
   {
-    title: 'Computer Science',
-    institution: 'Universidad Central',
-    link: 'https://www.ucentral.edu.co/',
-    date: '2019 - 2027',
+    title: 'The Date Pot',
+    link: 'https://github/com/kylescudder/the-date-pot'
   },
   {
-    title: '...',
-    institution: 'Platzi',
-    link: 'https://platzi.com/',
-    date: '2018 - 2022',
+    title: 'Big Day Planner',
+    link: 'https://github/com/kylescudder/big-day-planner'
   },
   {
-    title: '...',
-    institution: 'Udemy',
-    link: 'https://www.udemy.com/',
-    date: '2018 - 2022',
+    title: 'dotfiles',
+    link: 'https://github/com/kylescudder/dotfiles'
   },
   {
-    title: '...',
-    institution: 'Youtube',
-    link: 'https://www.youtube.com/@midulive',
-    date: '2018 - 2022',
+    title: 'scripts',
+    link: 'https://github/com/kylescudder/scripts'
   },
   {
-    title: 'Tattoo Artist',
-    institution: 'Tattoo Academy',
-    link: 'https://www.instagram.com/tattoodcacademy/',
-    date: '2024 - 2025',
+    title: 'Kyle Scudder',
+    link: 'https://github/com/kylescudder/kylescudder.co.uk'
   },
 ]
 

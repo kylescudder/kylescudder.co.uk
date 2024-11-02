@@ -1,0 +1,17 @@
+---
+import Card from '../Card.astro'
+import { Badge } from '../ui/badge'
+import { PROJECTS } from '../../lib/constants'
+---
+
+<Card colSpan="md:col-span-1" rowSpan="md:row-span-2" title="">
+  <div class="mt-2 flex w-full flex-wrap items-center justify-center gap-2">
+    {
+      PROJECTS.map((project) => (
+        <a href={project.link} target="__blank">
+          <Badge variant="outline">{project.title}</Badge>
+        </a>
+      ))
+    }
+  </div>
+</Card>
