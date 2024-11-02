@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro'
 import IntroCard from '../components/sections/IntroCard.astro'
 import AboutMe from '../components/sections/AboutMe.astro'
-import Card from '../components/Card.astro'
+import RhiannCard from '../components/sections/RhiannCard.astro'
 import TimeZoneCard from '../components/sections/TimeZoneCard.astro'
 import ContactsCard from '../components/sections/ContactsCard.astro'
 import Now from '../components/sections/Now.astro'
@@ -58,11 +58,6 @@ import { motion, AnimatePresence } from 'framer-motion'
     <ContactsCard />
     <ExperienceCard />
     <LetterboxdCard />
-    <Card
-      colSpan="md:col-span-1"
-      rowSpan="md:row-span-2"
-      title="Portfolio & Projects"
-      href="/portfolio"
-    />
+    <RhiannCard />
   </main>
 </BaseLayout>
