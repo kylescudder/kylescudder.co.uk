@@ -13,29 +13,30 @@ export const LINKS = {
   instagram: 'https://www.instagram.com/scudderkyle/',
   discord: 'https://discordapp.com/users/littlescud',
   letterboxd: 'https://letterboxd.com/LITTLESCUD/',
+  rhiannbulldesigns: 'https://rhiannbulldesigns.co.uk',
 }
 
 // ProjectsPage
 export const PROJECTS: Links = [
   {
     TEXT: 'The Date Pot',
-    HREF: 'https://github/com/kylescudder/the-date-pot'
+    HREF: 'https://github.com/kylescudder/the-date-pot',
   },
   {
     TEXT: 'Big Day Planner',
-    HREF: 'https://github/com/kylescudder/big-day-planner'
+    HREF: 'https://github.com/kylescudder/big-day-planner',
   },
   {
     TEXT: 'dotfiles',
-    HREF: 'https://github/com/kylescudder/dotfiles'
+    HREF: 'https://github.com/kylescudder/dotfiles',
   },
   {
     TEXT: 'scripts',
-    HREF: 'https://github/com/kylescudder/scripts'
+    HREF: 'https://github.com/kylescudder/scripts',
   },
   {
     TEXT: 'Kyle Scudder',
-    HREF: 'https://github/com/kylescudder/kylescudder.co.uk'
+    HREF: 'https://github.com/kylescudder/kylescudder.co.uk',
   },
 ]
 
