@@ -17,7 +17,7 @@ const Timezone = ({ timezone }: any) => {
     <div>
       <p>{dateTime}</p>
       <p className="text-sm text-gray-500">
-        🇨🇴 Hastings, East Sussex, United Kingdom 🇨🇴
+        🇬🇧Hastings, East Sussex, United Kingdom 🇬🇧
       </p>
     </div>
   )
