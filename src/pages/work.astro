@@ -32,9 +32,11 @@ import { EXPERIENCE } from '../lib/constants'
               </a>
               <div class="text-sm font-semibold">{entry.position}</div>
               <article class="prose dark:prose-invert">
-                {entry.tasks.map((i) => (
-                  <>{i}</>
-                ))}
+                <ul class="list-disc">
+                  {entry.tasks.map((i) => (
+                    <li>{i}</li>
+                  ))}
+                </ul>
               </article>
             </li>
           ))
