@@ -6,6 +6,12 @@ export const loaderAnimation = [
   { easing: 'ease-out' },
 ]
 
+// Work Page
+export const WORK: Page = {
+  TITLE: 'Work',
+  DESCRIPTION: 'Places I have worked.',
+}
+
 export const LINKS = {
   github: 'https://github.com/kylescudder',
   linkedin: 'https://www.linkedin.com/in/kyle-scudder-9417a861/',
