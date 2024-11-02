@@ -11,7 +11,6 @@ export const LINKS = {
   linkedin: 'https://www.linkedin.com/in/kyle-scudder-9417a861/',
   mail: 'mailto:kyle@kylescudder.co.uk',
   instagram: 'https://www.instagram.com/scudderkyle/',
-  medium: 'https://ladvace.medium.com/',
   discord: 'https://discordapp.com/users/littlescud',
   letterboxd: 'https://letterboxd.com/LITTLESCUD/',
 }
