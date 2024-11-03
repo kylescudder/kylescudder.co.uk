@@ -3,6 +3,11 @@ export type Links = {
   HREF: string
 }[]
 
+export type Page = {
+  TITLE: string
+  DESCRIPTION: string
+}
+
 export type Socials = {
   NAME: string
   ICON: string
