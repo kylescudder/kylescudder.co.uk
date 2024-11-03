@@ -1,4 +1,4 @@
-import type { Links } from './types'
+import type { Links, Page } from './types'
 
 export const loaderAnimation = [
   '.loader',
