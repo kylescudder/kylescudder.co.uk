@@ -1,11 +1,5 @@
 import type { Links, Page } from './types'
 
-export const loaderAnimation = [
-  '.loader',
-  { opacity: [1, 0], pointerEvents: 'none' },
-  { easing: 'ease-out' },
-]
-
 // Work Page
 export const WORK: Page = {
   TITLE: 'Work',

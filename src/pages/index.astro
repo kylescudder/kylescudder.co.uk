@@ -13,26 +13,18 @@ import LetterboxdCard from '../components/sections/LetterboxdCard.astro'
 ---
 
 <script>
-  import { stagger, spring, timeline, type TimelineDefinition } from 'motion'
-  import { loaderAnimation } from '../lib/constants'
+  import { stagger, spring, animate } from 'motion'
 
   const cards = document.querySelectorAll('.card-animate')
 
-  const sequence = [
-    loaderAnimation,
-    [
-      cards,
-      { y: ['40%', '0%'], opacity: [0, 1] },
-      {
-        at: '-0.1',
-        duration: 0.4,
-        delay: stagger(0.3),
-        easing: spring({ velocity: 100, stiffness: 50, damping: 10 }),
-      },
-    ],
-  ]
+  animate(
+    cards,
+    { y: ['40%', '0%'], opacity: [0, 1] },
+    {
+      type: spring, stiffness: 50, velocity: 100, damping: 10, duration: 0.4, delay: stagger(0.3)
+    }
+  )
 
-  timeline(sequence as TimelineDefinition)
 </script>
 
 <BaseLayout
