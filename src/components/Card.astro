@@ -1,7 +1,7 @@
 ---
 import ContentCard from './ContentCard.astro'
 import { Card as ShadcnCard } from './ui/card'
-import { SquareArrowOutUpRight } from 'lucide-react'
+import { IconExternalLink } from '@tabler/icons-react'
 
 interface Props {
   title?: string
@@ -23,7 +23,7 @@ const { title, body, colSpan, rowSpan, href, colorText } = Astro.props
   {
     href ? (
       <a href={href} class={`block h-full w-full ${colorText || ' '}`}>
-        <SquareArrowOutUpRight
+        <IconExternalLink
           className="group-hover:text-primary position absolute right-6 "
           size={20}
         />
