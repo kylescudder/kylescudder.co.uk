@@ -2,8 +2,12 @@
 import Card from '../Card.astro'
 import { Button } from '../ui/button'
 import { LINKS } from '../../lib/constants'
-import { Image } from 'astro:assets';
-import { IconBrandLinkedin, IconBrandGithub, IconMail } from '@tabler/icons-react';
+import { Image } from 'astro:assets'
+import {
+  IconBrandLinkedin,
+  IconBrandGithub,
+  IconMail,
+} from '@tabler/icons-react'
 ---
 
 <Card colSpan="md:col-span-3" rowSpan="md:row-span-4">
@@ -41,13 +45,13 @@ import { IconBrandLinkedin, IconBrandGithub, IconMail } from '@tabler/icons-reac
         </a>
       </div>
     </div>
-    <Image 
+    <Image
       width="300"
       height="300"
       src="/me.png"
       class="pointer-events-none absolute bottom-[-20px] right-[-110px] z-[-1] max-h-[300px] w-auto select-none opacity-50 md:relative md:bottom-auto md:right-auto md:z-auto md:opacity-100"
       alt="memoji of Kyle Scudder"
-      loading='eager'
+      loading="eager"
     />
   </div>
 </Card>
