@@ -38,6 +38,10 @@ export const PROJECTS: Links = [
     TEXT: 'Kyle Scudder',
     HREF: 'https://github.com/kylescudder/kylescudder.co.uk',
   },
+  {
+    TEXT: 'Jai Scudder Plumbing',
+    HREF: 'https://github.com/kylescudder/jaiscudderplumbing',
+  },
 ]
 
 export const EXPERIENCE = [
