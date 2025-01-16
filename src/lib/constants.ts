@@ -48,7 +48,7 @@ export const EXPERIENCE = [
   {
     company: 'Crimson Tide',
     location: 'Royal Tunbridge Wells, Kent, United Kingdom',
-    position: 'Back End Develop',
+    position: 'Back End Developer',
     start: 'September 2023',
     link: 'https://mpro5.com/',
     end: 'Current',
@@ -62,7 +62,7 @@ export const EXPERIENCE = [
   {
     company: 'Paloma Systems Ltd',
     location: 'Brighton, East Sussex, United Kingdom',
-    position: 'Lead Software Develop',
+    position: 'Lead Software Developer',
     link: 'https://paloma.co.uk/',
     start: 'September 2022',
     end: 'September 2023',
