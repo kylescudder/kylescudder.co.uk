@@ -37,7 +37,7 @@
   "devDependencies": {
     "prettier-plugin-tailwindcss": "0.6.11",
     "@types/node": "22.14.1",
-    "@types/react": "19.1.1",
+    "@types/react": "19.1.2",
     "@types/react-dom": "19.1.2",
     "husky": "9.1.7",
     "prettier": "3.5.3",
