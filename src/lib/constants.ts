@@ -42,16 +42,34 @@ export const PROJECTS: Links = [
     TEXT: 'Jai Scudder Plumbing',
     HREF: 'https://github.com/kylescudder/jaiscudderplumbing',
   },
+  {
+    TEXT: 'Docker Compose',
+    HREF: 'https://github.com/kylescudder/docker-compose',
+  },
 ]
 
 export const EXPERIENCE = [
   {
     company: 'Crimson Tide',
     location: 'Royal Tunbridge Wells, Kent, United Kingdom',
+    position: 'Senior Back End Developer',
+    start: 'May 2025',
+    link: 'https://mpro5.com/',
+    end: 'Current',
+    tasks: [
+      'Mentor and coach junior and mid-level engineers through regular pair-programming and code reviews, accelerating their ramp-up and autonomy.',
+      'Led Shape Up methodology cycles across the development team, helping give estimates for scopes, allowing an appetite to be determined, and to track bets to ensure scoped, high-value deliveries.',
+      'Participated in interviews for new junior and mid-level candidates, helped shape the technical portion of the process, and onboarding.',
+      'Implemented security best practices, including data encryption and access controls, to safeguard sensitive information.',
+    ],
+  },
+  {
+    company: 'Crimson Tide',
+    location: 'Royal Tunbridge Wells, Kent, United Kingdom',
     position: 'Back End Developer',
     start: 'September 2023',
     link: 'https://mpro5.com/',
-    end: 'Current',
+    end: 'May 2025',
     tasks: [
       'Developed and maintained server-side applications using C# and .NET Core, with a focus on high-performance, scalable architecture.',
       'Built and optimized RESTful and GraphQL APIs for data exchange between server and client, enhancing application speed and reliability.',
