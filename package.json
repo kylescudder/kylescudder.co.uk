@@ -16,8 +16,8 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@astrojs/netlify": "7.0.1",
-    "@astrojs/react": "5.0.0",
+    "@astrojs/netlify": "7.0.8",
+    "@astrojs/react": "5.0.4",
     "@radix-ui/react-dropdown-menu": "2.1.16",
     "@radix-ui/react-slot": "1.2.4",
     "@tabler/icons-react": "3.40.0",
