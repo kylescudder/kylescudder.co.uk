@@ -35,7 +35,7 @@
     "tailwindcss-animate": "1.0.7"
   },
   "devDependencies": {
-    "prettier-plugin-tailwindcss": "0.7.2",
+    "prettier-plugin-tailwindcss": "0.8.0",
     "@types/node": "25.3.5",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
