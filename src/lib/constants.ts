@@ -19,32 +19,32 @@ export const LINKS = {
 // ProjectsPage
 export const PROJECTS: Links = [
   {
-    TEXT: 'The Date Pot',
-    HREF: 'https://github.com/kylescudder/the-date-pot',
+    TEXT: 'LGTM',
+    HREF: 'https://github.com/kylescudder/lgtm',
   },
   {
-    TEXT: 'Big Day Planner',
-    HREF: 'https://github.com/kylescudder/big-day-planner',
+    TEXT: 'Balm',
+    HREF: 'https://github.com/kylescudder/balm',
   },
   {
-    TEXT: 'dotfiles',
-    HREF: 'https://github.com/kylescudder/dotfiles',
+    TEXT: 'Spark Plug',
+    HREF: 'https://github.com/kylescudder/spark-plug',
   },
   {
-    TEXT: 'scripts',
-    HREF: 'https://github.com/kylescudder/scripts',
+    TEXT: 'Spark Plug Raycast',
+    HREF: 'https://github.com/kylescudder/spark-plug-raycast',
   },
   {
-    TEXT: 'Kyle Scudder',
-    HREF: 'https://github.com/kylescudder/kylescudder.co.uk',
+    TEXT: 'Dead Wax Club',
+    HREF: 'https://github.com/kylescudder/deadwaxclub',
   },
   {
-    TEXT: 'Jai Scudder Plumbing',
-    HREF: 'https://github.com/kylescudder/jaiscudderplumbing',
+    TEXT: 'Recipe Saver',
+    HREF: 'https://github.com/kylescudder/recipe-saver',
   },
   {
-    TEXT: 'Docker Compose',
-    HREF: 'https://github.com/kylescudder/docker-compose',
+    TEXT: 'Diald Club',
+    HREF: 'https://github.com/kylescudder/dialdclub',
   },
 ]
 
