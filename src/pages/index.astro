@@ -4,6 +4,7 @@ import { EXPERIENCE, LINKS, PROJECTS } from '../lib/constants'
 
 const stack = ['C#', '.NET', 'TypeScript', 'React', 'Next.js', 'Rust']
 const featuredProjects = PROJECTS.slice(0, 5)
+const portraitImage = '/profile-signal.jpg'
 
 const contacts = [
   { label: 'GitHub', href: LINKS.github },
@@ -30,7 +31,7 @@ const contacts = [
         </aside>
 
         <div class="hero-copy">
-          <p class="eyebrow">Signal Room / Portfolio</p>
+          <p class="eyebrow">Backend Systems / Portfolio</p>
           <h1 id="site-title">
             Kyle Scudder builds the quiet machinery behind useful products.
           </h1>
@@ -48,14 +49,25 @@ const contacts = [
           </nav>
         </div>
 
-        <img
-          class="signal-portrait"
-          src="/me.png"
-          alt="Memoji portrait of Kyle Scudder"
-        />
+        <div class="signal-portrait-frame">
+          <img
+            class="signal-portrait"
+            src={portraitImage}
+            alt="Profile photo of Kyle Scudder"
+          />
+        </div>
+
+        <a
+          class="scroll-indicator"
+          href="#profile-details"
+          aria-label="Scroll to profile details"></a>
       </section>
 
-      <section class="signal-panels" aria-label="Profile details">
+      <section
+        id="profile-details"
+        class="signal-panels"
+        aria-label="Profile details"
+      >
         <article class="signal-panel panel-stack">
           <h2>Stack</h2>
           <div>
@@ -65,7 +77,9 @@ const contacts = [
 
         <article class="signal-panel panel-now">
           <h2>Now</h2>
-          <p>Learning Rust, refining a Linux setup, and building with Astro.</p>
+          <p>
+            Learning Swift, refining a Linux setup, and building with Astro.
+          </p>
         </article>
 
         <article class="signal-panel panel-projects">
@@ -83,7 +97,10 @@ const contacts = [
       <section class="experience-section" aria-labelledby="experience-title">
         <div class="section-heading">
           <p class="eyebrow">Experience</p>
-          <h2 id="experience-title">Work history with the details in reach.</h2>
+          <h2 id="experience-title">
+            A practical history of building and supporting software with
+            real-world impact.
+          </h2>
         </div>
 
         <div class="experience-list">
@@ -165,10 +182,13 @@ const contacts = [
   }
 
   .signal-hero {
+    position: relative;
     display: grid;
-    min-height: min(860px, calc(100vh - 32px));
     grid-template-columns: 86px minmax(0, 1fr) minmax(220px, 360px);
     gap: 14px;
+    border: 1px solid rgba(241, 90, 36, 0.72);
+    padding: clamp(18px, 2vw, 32px) clamp(44px, 4vw, 72px)
+      clamp(88px, 7vw, 112px) clamp(18px, 2vw, 32px);
   }
 
   .signal-rail {
@@ -184,7 +204,7 @@ const contacts = [
 
   .hero-copy {
     align-self: end;
-    padding-bottom: clamp(24px, 5vw, 72px);
+    padding-bottom: clamp(8px, 2vw, 24px);
   }
 
   .eyebrow {
@@ -202,12 +222,12 @@ const contacts = [
   }
 
   h1 {
-    max-width: 1040px;
-    margin-bottom: 22px;
+    max-width: 930px;
+    margin-bottom: 18px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: clamp(54px, 9vw, 136px);
+    font-size: clamp(50px, 7vw, 112px);
     font-weight: 900;
-    line-height: 0.86;
+    line-height: 0.88;
     text-transform: uppercase;
   }
 
@@ -243,18 +263,72 @@ const contacts = [
     transform: translateY(-2px);
   }
 
-  .signal-portrait {
+  .signal-portrait-frame {
+    position: relative;
+    isolation: isolate;
     align-self: end;
     justify-self: center;
-    width: min(340px, 100%);
-    filter: drop-shadow(18px 18px 0 #f15a24);
+    width: min(320px, 100%);
+    transform: translateY(-24px);
+  }
+
+  .signal-portrait-frame::after {
+    position: absolute;
+    z-index: -1;
+    inset: 18px -18px -18px 18px;
+    border: 1px solid #f15a24;
+    background: #f15a24;
+    content: '';
+  }
+
+  .signal-portrait {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    border: 1px solid #f15a24;
+    clip-path: polygon(0 0, 100% 0, 100% 91%, 88% 100%, 0 100%);
+    object-fit: cover;
+    object-position: 45% 42%;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    width: 32px;
+    height: 52px;
+    place-items: center;
+    border: 1px solid #f15a24;
+    color: #f15a24;
+  }
+
+  .scroll-indicator::before {
+    content: '↓';
+    font-size: 18px;
+    line-height: 1;
+    animation: scroll-pulse 1200ms ease-in-out infinite;
+  }
+
+  @keyframes scroll-pulse {
+    0%,
+    100% {
+      transform: translateY(-3px);
+      opacity: 0.58;
+    }
+    50% {
+      transform: translateY(4px);
+      opacity: 1;
+    }
   }
 
   .signal-panels {
     display: grid;
     grid-template-columns: 1fr 1fr 1.4fr;
     gap: 14px;
-    margin-top: 14px;
+    scroll-margin-top: 24px;
+    margin-top: 18px;
   }
 
   .signal-panel,
@@ -299,7 +373,7 @@ const contacts = [
     display: grid;
     grid-template-columns: minmax(220px, 0.44fr) minmax(0, 1fr);
     gap: clamp(18px, 3vw, 42px);
-    padding: clamp(56px, 8vw, 108px) 0 32px;
+    padding: clamp(76px, 9vw, 128px) 0 32px;
   }
 
   .section-heading {
@@ -427,16 +501,25 @@ const contacts = [
       min-height: auto;
     }
 
+    .scroll-indicator {
+      display: none;
+    }
+
     .signal-rail {
       margin-bottom: 24px;
       writing-mode: horizontal-tb;
       gap: 12px;
     }
 
-    .signal-portrait {
+    .signal-portrait-frame {
       display: block;
       width: min(280px, 72vw);
       margin: 28px auto 0;
+      transform: none;
+    }
+
+    .signal-panels {
+      margin-top: 52px;
     }
 
     .signal-panel {
@@ -446,6 +529,23 @@ const contacts = [
     .section-heading {
       position: static;
       margin-bottom: 20px;
+    }
+  }
+
+  @media (min-width: 921px) and (max-width: 1320px) {
+    .signal-hero {
+      padding-right: 52px;
+      padding-bottom: 96px;
+    }
+
+    h1 {
+      max-width: 780px;
+      font-size: clamp(46px, 5.8vw, 84px);
+    }
+
+    .signal-portrait-frame {
+      width: min(280px, 100%);
+      transform: translateY(-28px);
     }
   }
 
