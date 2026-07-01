@@ -2,9 +2,7 @@
 import HeadSEO from '../components/HeadSEO.astro'
 import { Image } from 'astro:assets'
 import { EXPERIENCE, LINKS, PROJECTS } from '../lib/constants'
-import letterboxdImage from '../assets/me-letterboxd.png'
 import portraitImage from '../assets/profile-signal.jpg'
-import rhiannImage from '../assets/rhiann.png'
 
 const stack = ['C#', '.NET', 'TypeScript', 'React', 'Next.js', 'Rust']
 const featuredProjects = PROJECTS.slice(0, 5)
@@ -106,48 +104,6 @@ const contacts = [
         </article>
       </section>
 
-      <section class="personal-section" aria-labelledby="personal-title">
-        <div class="section-heading">
-          <p class="eyebrow">Elsewhere</p>
-          <h2 id="personal-title">The personal corners that still matter.</h2>
-        </div>
-
-        <div class="personal-grid">
-          <a
-            class="personal-card"
-            href={LINKS.rhiannbulldesigns}
-            aria-label="Visit Rhiann Bull Designs"
-          >
-            <div>
-              <span>Rhiann Bull Designs</span>
-              <h3>My wife's design studio and card shop.</h3>
-              <p>
-                Rhiann is a graphic designer with a brilliant eye for playful,
-                thoughtful work. Her shop is full of cards, prints, and things
-                worth sending.
-              </p>
-            </div>
-            <Image src={rhiannImage} alt="Rhiann Bull" width={180} />
-          </a>
-
-          <a
-            class="personal-card"
-            href={LINKS.letterboxd}
-            aria-label="Visit Kyle Scudder on Letterboxd"
-          >
-            <div>
-              <span>Letterboxd</span>
-              <h3>Films, horror shelves, and the occasional review.</h3>
-              <p>
-                A small trail of what I have been watching, from cinema trips to
-                B movie horror collecting.
-              </p>
-            </div>
-            <Image src={letterboxdImage} alt="Kyle Scudder" width={180} />
-          </a>
-        </div>
-      </section>
-
       <section class="experience-section" aria-labelledby="experience-title">
         <div class="section-heading">
           <p class="eyebrow">Experience</p>
@@ -190,6 +146,42 @@ const contacts = [
               </details>
             ))
           }
+        </div>
+      </section>
+
+      <section class="personal-section" aria-labelledby="personal-title">
+        <div class="section-heading">
+          <p class="eyebrow">Elsewhere</p>
+          <h2 id="personal-title">The personal corners that still matter.</h2>
+        </div>
+
+        <div class="personal-grid">
+          <a
+            class="personal-card"
+            href={LINKS.rhiannbulldesigns}
+            aria-label="Visit Rhiann Bull Designs"
+          >
+            <span>Rhiann Bull Designs</span>
+            <h3>My wife's design studio and card shop.</h3>
+            <p>
+              Rhiann is a graphic designer with a brilliant eye for playful,
+              thoughtful work. Her shop is full of cards, prints, and things
+              worth sending.
+            </p>
+          </a>
+
+          <a
+            class="personal-card"
+            href={LINKS.letterboxd}
+            aria-label="Visit Kyle Scudder on Letterboxd"
+          >
+            <span>Letterboxd</span>
+            <h3>Films, horror shelves, and the occasional review.</h3>
+            <p>
+              A small trail of what I have been watching, from cinema trips to B
+              movie horror collecting.
+            </p>
+          </a>
         </div>
       </section>
     </main>
@@ -450,9 +442,9 @@ const contacts = [
   .personal-card {
     position: relative;
     display: grid;
-    min-height: 250px;
-    grid-template-columns: minmax(0, 1fr) minmax(110px, 180px);
-    gap: 18px;
+    align-content: start;
+    min-height: 220px;
+    gap: 10px;
     overflow: hidden;
     border: 1px solid rgba(255, 244, 215, 0.28);
     background: rgba(13, 16, 12, 0.76);
@@ -475,7 +467,7 @@ const contacts = [
   }
 
   .personal-card h3 {
-    margin: 10px 0 12px;
+    margin: 0;
     color: #fff4d7;
     font-size: clamp(22px, 2.2vw, 34px);
     font-weight: 800;
@@ -488,15 +480,6 @@ const contacts = [
     color: #d6ceb9;
     font-size: 14px;
     line-height: 1.5;
-  }
-
-  .personal-card img {
-    align-self: end;
-    justify-self: end;
-    width: min(180px, 100%);
-    height: auto;
-    max-height: 220px;
-    object-fit: contain;
   }
 
   .experience-section {
@@ -711,14 +694,6 @@ const contacts = [
 
     .role-context {
       grid-template-columns: 1fr;
-    }
-
-    .personal-card {
-      grid-template-columns: 1fr;
-    }
-
-    .personal-card img {
-      justify-self: start;
     }
   }
 </style>
