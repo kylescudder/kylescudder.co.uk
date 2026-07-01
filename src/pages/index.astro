@@ -1,10 +1,11 @@
 ---
 import HeadSEO from '../components/HeadSEO.astro'
+import { Image } from 'astro:assets'
 import { EXPERIENCE, LINKS, PROJECTS } from '../lib/constants'
+import portraitImage from '../assets/profile-signal.jpg'
 
 const stack = ['C#', '.NET', 'TypeScript', 'React', 'Next.js', 'Rust']
 const featuredProjects = PROJECTS.slice(0, 5)
-const portraitImage = '/profile-signal.jpg'
 
 const contacts = [
   { label: 'GitHub', href: LINKS.github },
@@ -42,25 +43,32 @@ const contacts = [
           <nav class="action-row" aria-label="Contact links">
             {
               contacts.map((contact) => (
-                <a href={contact.href}>{contact.label}</a>
+                <a href={contact.href} aria-label={contact.label}>
+                  {contact.label}
+                </a>
               ))
             }
-            <a href="/CV.pdf">CV</a>
+            <a href="/CV.pdf" aria-label="Download CV">CV</a>
           </nav>
         </div>
 
         <div class="signal-portrait-frame">
-          <img
+          <Image
             class="signal-portrait"
             src={portraitImage}
-            alt="Profile photo of Kyle Scudder"
+            alt="Kyle Scudder"
+            widths={[280, 320, 640]}
+            sizes="(max-width: 920px) 72vw, 320px"
           />
         </div>
 
         <a
           class="scroll-indicator"
           href="#profile-details"
-          aria-label="Scroll to profile details"></a>
+          aria-label="Scroll to profile details"
+        >
+          <span>Scroll</span>
+        </a>
       </section>
 
       <section
@@ -87,7 +95,9 @@ const contacts = [
           <div>
             {
               featuredProjects.map((project) => (
-                <a href={project.HREF}>{project.TEXT}</a>
+                <a href={project.HREF} aria-label={project.TEXT}>
+                  {project.TEXT}
+                </a>
               ))
             }
           </div>
@@ -122,7 +132,9 @@ const contacts = [
 
                 <div class="experience-details">
                   <div class="role-context">
-                    <a href={role.link ?? ''}>{role.company}</a>
+                    <a href={role.link ?? ''} aria-label={role.company}>
+                      {role.company}
+                    </a>
                     <span>{role.location}</span>
                   </div>
                   <ul>
@@ -134,6 +146,42 @@ const contacts = [
               </details>
             ))
           }
+        </div>
+      </section>
+
+      <section class="personal-section" aria-labelledby="personal-title">
+        <div class="section-heading">
+          <p class="eyebrow">Elsewhere</p>
+          <h2 id="personal-title">The personal corners that still matter.</h2>
+        </div>
+
+        <div class="personal-grid">
+          <a
+            class="personal-card"
+            href={LINKS.rhiannbulldesigns}
+            aria-label="Visit Rhiann Bull Designs"
+          >
+            <span>Rhiann Bull Designs</span>
+            <h3>My wife's design studio and card shop.</h3>
+            <p>
+              Rhiann is a graphic designer with a brilliant eye for playful,
+              thoughtful work. Her shop is full of cards, prints, and things
+              worth sending.
+            </p>
+          </a>
+
+          <a
+            class="personal-card"
+            href={LINKS.letterboxd}
+            aria-label="Visit Kyle Scudder on Letterboxd"
+          >
+            <span>Letterboxd</span>
+            <h3>Films, horror shelves, and the occasional review.</h3>
+            <p>
+              A small trail of what I have been watching, from cinema trips to B
+              movie horror collecting.
+            </p>
+          </a>
         </div>
       </section>
     </main>
@@ -311,6 +359,15 @@ const contacts = [
     animation: scroll-pulse 1200ms ease-in-out infinite;
   }
 
+  .scroll-indicator span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
   @keyframes scroll-pulse {
     0%,
     100% {
@@ -369,11 +426,68 @@ const contacts = [
     line-height: 1.5;
   }
 
+  .personal-section {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.38fr) minmax(0, 1fr);
+    gap: clamp(18px, 3vw, 42px);
+    padding: clamp(56px, 7vw, 92px) 0 0;
+  }
+
+  .personal-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .personal-card {
+    position: relative;
+    display: grid;
+    align-content: start;
+    min-height: 220px;
+    gap: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 244, 215, 0.28);
+    background: rgba(13, 16, 12, 0.76);
+    padding: 18px;
+    transition:
+      border-color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .personal-card:hover,
+  .personal-card:focus-visible {
+    border-color: #f15a24;
+    transform: translateY(-2px);
+  }
+
+  .personal-card span {
+    color: #f15a24;
+    font-size: 13px;
+    text-transform: uppercase;
+  }
+
+  .personal-card h3 {
+    margin: 0;
+    color: #fff4d7;
+    font-size: clamp(22px, 2.2vw, 34px);
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .personal-card p {
+    margin-bottom: 0;
+    color: #d6ceb9;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
   .experience-section {
     display: grid;
-    grid-template-columns: minmax(220px, 0.44fr) minmax(0, 1fr);
+    grid-template-columns: minmax(260px, 0.38fr) minmax(0, 1fr);
     gap: clamp(18px, 3vw, 42px);
     padding: clamp(76px, 9vw, 128px) 0 32px;
+    overflow: hidden;
   }
 
   .section-heading {
@@ -383,11 +497,13 @@ const contacts = [
   }
 
   .section-heading h2 {
+    max-width: 100%;
     margin: 0;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: clamp(38px, 4.6vw, 76px);
-    line-height: 0.92;
+    font-size: clamp(30px, 3.4vw, 56px);
+    line-height: 0.96;
     text-transform: uppercase;
+    overflow-wrap: break-word;
   }
 
   .experience-list {
@@ -493,6 +609,7 @@ const contacts = [
   @media (max-width: 920px) {
     .signal-hero,
     .signal-panels,
+    .personal-section,
     .experience-section {
       display: block;
     }
@@ -523,6 +640,14 @@ const contacts = [
     }
 
     .signal-panel {
+      margin-top: 12px;
+    }
+
+    .personal-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .personal-card {
       margin-top: 12px;
     }
 
