@@ -1,10 +1,11 @@
 ---
 import HeadSEO from '../components/HeadSEO.astro'
+import { Image } from 'astro:assets'
 import { EXPERIENCE, LINKS, PROJECTS } from '../lib/constants'
+import portraitImage from '../assets/profile-signal.jpg'
 
 const stack = ['C#', '.NET', 'TypeScript', 'React', 'Next.js', 'Rust']
 const featuredProjects = PROJECTS.slice(0, 5)
-const portraitImage = '/profile-signal.jpg'
 
 const contacts = [
   { label: 'GitHub', href: LINKS.github },
@@ -52,7 +53,13 @@ const contacts = [
         </div>
 
         <div class="signal-portrait-frame">
-          <img class="signal-portrait" src={portraitImage} alt="Kyle Scudder" />
+          <Image
+            class="signal-portrait"
+            src={portraitImage}
+            alt="Kyle Scudder"
+            widths={[280, 320, 640]}
+            sizes="(max-width: 920px) 72vw, 320px"
+          />
         </div>
 
         <a
