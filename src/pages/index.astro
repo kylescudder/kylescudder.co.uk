@@ -1,58 +1,574 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
-import IntroCard from '../components/sections/IntroCard.astro'
-import AboutMe from '../components/sections/AboutMe.astro'
-import RhiannCard from '../components/sections/RhiannCard.astro'
-import TimeZoneCard from '../components/sections/TimeZoneCard.astro'
-import ContactsCard from '../components/sections/ContactsCard.astro'
-import Now from '../components/sections/Now.astro'
-import CVCard from '../components/sections/CVCard.astro'
-import ExperienceCard from '../components/sections/ExperienceCard.astro'
-import ProjectsCard from '../components/sections/ProjectsCard.astro'
-import LetterboxdCard from '../components/sections/LetterboxdCard.astro'
+import HeadSEO from '../components/HeadSEO.astro'
+import { EXPERIENCE, LINKS, PROJECTS } from '../lib/constants'
+
+const stack = ['C#', '.NET', 'TypeScript', 'React', 'Next.js', 'Rust']
+const featuredProjects = PROJECTS.slice(0, 5)
+const portraitImage = '/profile-signal.jpg'
+
+const contacts = [
+  { label: 'GitHub', href: LINKS.github },
+  { label: 'LinkedIn', href: LINKS.linkedin },
+  { label: 'Email', href: LINKS.mail },
+]
 ---
 
-<script>
-  import { stagger, spring, animate } from 'motion'
+<html lang="en">
+  <head>
+    <HeadSEO
+      title="Kyle Scudder - Back End Developer"
+      description="Kyle Scudder is a senior back end developer building reliable APIs, internal tools, and product systems."
+      ogImage={new URL('me.png', Astro.url)}
+    />
+  </head>
+  <body>
+    <main class="signal-page">
+      <section class="signal-hero" aria-labelledby="site-title">
+        <aside class="signal-rail" aria-label="Profile facts">
+          <span>Hastings, UK</span>
+          <span>Senior Back End Developer</span>
+          <span>Reliable APIs / Product Systems / Delivery</span>
+        </aside>
 
-  const cards = document.querySelectorAll('.card-animate')
+        <div class="hero-copy">
+          <p class="eyebrow">Backend Systems / Portfolio</p>
+          <h1 id="site-title">
+            Kyle Scudder builds the quiet machinery behind useful products.
+          </h1>
+          <p>
+            Back end developer with a bias for shipping reliable systems,
+            readable APIs, and tools people actually keep using.
+          </p>
+          <nav class="action-row" aria-label="Contact links">
+            {
+              contacts.map((contact) => (
+                <a href={contact.href}>{contact.label}</a>
+              ))
+            }
+            <a href="/CV.pdf">CV</a>
+          </nav>
+        </div>
 
-  animate(
-    cards,
-    { y: ['40%', '0%'], opacity: [0, 1] },
-    {
-      type: spring,
-      stiffness: 50,
-      velocity: 100,
-      damping: 10,
-      duration: 0.4,
-      delay: stagger(0.3),
-    },
-  )
-</script>
+        <div class="signal-portrait-frame">
+          <img
+            class="signal-portrait"
+            src={portraitImage}
+            alt="Profile photo of Kyle Scudder"
+          />
+        </div>
 
-<BaseLayout
-  title="Kyle Scudder - Back End Developer"
-  description="Kyle Scudder - Back End Developer - Portfolio, Projects, CV, About Me, Contact, Timezone, Now, Experience, Letterboxd"
-  ogImage={new URL('me.png', Astro.url)}
->
-  <div
-    slot="loader"
-    class="loader bg-darkslate-700 fixed top-0 right-0 bottom-0 left-0 z-50 flex h-screen w-screen items-center justify-center text-3xl font-black text-neutral-50 uppercase"
-  >
-  </div>
-  <main
-    class="relative m-auto grid w-full max-w-6xl gap-2 overflow-hidden p-2 sm:gap-2 sm:p-4 md:grid-cols-2 md:gap-3 md:p-6 lg:grid-cols-4 lg:grid-rows-8 lg:gap-4"
-  >
-    <IntroCard />
-    <AboutMe />
-    <CVCard />
-    <Now />
-    <ProjectsCard />
-    <TimeZoneCard />
-    <ContactsCard />
-    <ExperienceCard />
-    <LetterboxdCard />
-    <RhiannCard />
-  </main>
-</BaseLayout>
+        <a
+          class="scroll-indicator"
+          href="#profile-details"
+          aria-label="Scroll to profile details"></a>
+      </section>
+
+      <section
+        id="profile-details"
+        class="signal-panels"
+        aria-label="Profile details"
+      >
+        <article class="signal-panel panel-stack">
+          <h2>Stack</h2>
+          <div>
+            {stack.map((item) => <span>{item}</span>)}
+          </div>
+        </article>
+
+        <article class="signal-panel panel-now">
+          <h2>Now</h2>
+          <p>
+            Learning Swift, refining a Linux setup, and building with Astro.
+          </p>
+        </article>
+
+        <article class="signal-panel panel-projects">
+          <h2>Projects</h2>
+          <div>
+            {
+              featuredProjects.map((project) => (
+                <a href={project.HREF}>{project.TEXT}</a>
+              ))
+            }
+          </div>
+        </article>
+      </section>
+
+      <section class="experience-section" aria-labelledby="experience-title">
+        <div class="section-heading">
+          <p class="eyebrow">Experience</p>
+          <h2 id="experience-title">
+            A practical history of building and supporting software with
+            real-world impact.
+          </h2>
+        </div>
+
+        <div class="experience-list">
+          {
+            EXPERIENCE.map((role, index) => (
+              <details class="experience-item" open={index === 0}>
+                <summary>
+                  <span class="summary-main">
+                    <span class="summary-title">{role.position}</span>
+                    <span class="summary-company">{role.company}</span>
+                  </span>
+                  <span class="summary-meta">
+                    <span>
+                      {role.start} - {role.end}
+                    </span>
+                    <span class="summary-action">Details</span>
+                  </span>
+                </summary>
+
+                <div class="experience-details">
+                  <div class="role-context">
+                    <a href={role.link ?? ''}>{role.company}</a>
+                    <span>{role.location}</span>
+                  </div>
+                  <ul>
+                    {role.tasks.map((task) => (
+                      <li>{task}</li>
+                    ))}
+                  </ul>
+                </div>
+              </details>
+            ))
+          }
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+
+<style>
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(html) {
+    background: #10130f;
+    scroll-behavior: smooth;
+  }
+
+  :global(body) {
+    margin: 0;
+    background:
+      linear-gradient(90deg, rgba(238, 82, 45, 0.12) 1px, transparent 1px),
+      linear-gradient(rgba(238, 82, 45, 0.08) 1px, transparent 1px),
+      radial-gradient(
+        circle at 72% 12%,
+        rgba(238, 82, 45, 0.28),
+        transparent 26%
+      ),
+      #10130f;
+    background-size:
+      42px 42px,
+      42px 42px,
+      auto,
+      auto;
+    color: #fff4d7;
+    font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  }
+
+  :global(a) {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .signal-page {
+    width: min(100%, 1480px);
+    margin: 0 auto;
+    padding: clamp(16px, 3vw, 42px);
+  }
+
+  .signal-hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 86px minmax(0, 1fr) minmax(220px, 360px);
+    gap: 14px;
+    border: 1px solid rgba(241, 90, 36, 0.72);
+    padding: clamp(18px, 2vw, 32px) clamp(44px, 4vw, 72px)
+      clamp(88px, 7vw, 112px) clamp(18px, 2vw, 32px);
+  }
+
+  .signal-rail {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #f15a24;
+    padding: 16px 10px;
+    color: #f15a24;
+    font-size: 13px;
+    writing-mode: vertical-rl;
+  }
+
+  .hero-copy {
+    align-self: end;
+    padding-bottom: clamp(8px, 2vw, 24px);
+  }
+
+  .eyebrow {
+    margin: 0 0 18px;
+    color: #f15a24;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  h1,
+  h2,
+  p {
+    margin-top: 0;
+  }
+
+  h1 {
+    max-width: 930px;
+    margin-bottom: 18px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: clamp(50px, 7vw, 112px);
+    font-weight: 900;
+    line-height: 0.88;
+    text-transform: uppercase;
+  }
+
+  .hero-copy > p:not(.eyebrow) {
+    max-width: 660px;
+    color: #d6ceb9;
+    font-size: clamp(17px, 2vw, 24px);
+    line-height: 1.42;
+  }
+
+  .action-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .action-row a {
+    border: 1px solid currentColor;
+    padding: 11px 14px;
+    font-size: 12px;
+    text-transform: uppercase;
+    transition:
+      transform 180ms ease,
+      background 180ms ease,
+      color 180ms ease;
+  }
+
+  .action-row a:hover,
+  .action-row a:focus-visible {
+    background: #fff4d7;
+    color: #11130f;
+    transform: translateY(-2px);
+  }
+
+  .signal-portrait-frame {
+    position: relative;
+    isolation: isolate;
+    align-self: end;
+    justify-self: center;
+    width: min(320px, 100%);
+    transform: translateY(-24px);
+  }
+
+  .signal-portrait-frame::after {
+    position: absolute;
+    z-index: -1;
+    inset: 18px -18px -18px 18px;
+    border: 1px solid #f15a24;
+    background: #f15a24;
+    content: '';
+  }
+
+  .signal-portrait {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    border: 1px solid #f15a24;
+    clip-path: polygon(0 0, 100% 0, 100% 91%, 88% 100%, 0 100%);
+    object-fit: cover;
+    object-position: 45% 42%;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    width: 32px;
+    height: 52px;
+    place-items: center;
+    border: 1px solid #f15a24;
+    color: #f15a24;
+  }
+
+  .scroll-indicator::before {
+    content: '↓';
+    font-size: 18px;
+    line-height: 1;
+    animation: scroll-pulse 1200ms ease-in-out infinite;
+  }
+
+  @keyframes scroll-pulse {
+    0%,
+    100% {
+      transform: translateY(-3px);
+      opacity: 0.58;
+    }
+    50% {
+      transform: translateY(4px);
+      opacity: 1;
+    }
+  }
+
+  .signal-panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.4fr;
+    gap: 14px;
+    scroll-margin-top: 24px;
+    margin-top: 18px;
+  }
+
+  .signal-panel,
+  .experience-item {
+    border: 1px solid rgba(255, 244, 215, 0.28);
+    background: rgba(13, 16, 12, 0.76);
+  }
+
+  .signal-panel {
+    padding: 18px;
+  }
+
+  .signal-panel h2 {
+    margin: 0 0 14px;
+    color: #f15a24;
+    font-size: 13px;
+    text-transform: uppercase;
+  }
+
+  .panel-stack div,
+  .panel-projects div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .panel-stack span,
+  .panel-projects a {
+    background: #fff4d7;
+    padding: 7px 9px;
+    color: #11130f;
+    font-size: 12px;
+  }
+
+  .panel-now p {
+    margin-bottom: 0;
+    color: #d6ceb9;
+    line-height: 1.5;
+  }
+
+  .experience-section {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.44fr) minmax(0, 1fr);
+    gap: clamp(18px, 3vw, 42px);
+    padding: clamp(76px, 9vw, 128px) 0 32px;
+  }
+
+  .section-heading {
+    position: sticky;
+    top: 24px;
+    align-self: start;
+  }
+
+  .section-heading h2 {
+    margin: 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: clamp(38px, 4.6vw, 76px);
+    line-height: 0.92;
+    text-transform: uppercase;
+  }
+
+  .experience-list {
+    display: grid;
+    gap: 12px;
+  }
+
+  .experience-item {
+    overflow: hidden;
+  }
+
+  .experience-item summary {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 18px;
+    align-items: center;
+    min-height: 92px;
+    padding: 18px;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .experience-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .summary-main,
+  .summary-meta,
+  .role-context {
+    display: grid;
+    gap: 6px;
+  }
+
+  .summary-title {
+    color: #fff4d7;
+    font-size: clamp(20px, 2.4vw, 34px);
+    font-weight: 800;
+    line-height: 1.05;
+  }
+
+  .summary-company,
+  .summary-meta,
+  .role-context {
+    color: #d6ceb9;
+    font-size: 13px;
+  }
+
+  .summary-meta {
+    justify-items: end;
+    text-align: right;
+    text-transform: uppercase;
+  }
+
+  .summary-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #f15a24;
+  }
+
+  .summary-action::before {
+    content: '+';
+    display: inline-grid;
+    width: 24px;
+    height: 24px;
+    place-items: center;
+    border: 1px solid currentColor;
+  }
+
+  .experience-item[open] .summary-action::before {
+    content: '-';
+  }
+
+  .experience-details {
+    display: grid;
+    gap: 18px;
+    border-top: 1px solid rgba(255, 244, 215, 0.18);
+    padding: 0 18px 22px;
+  }
+
+  .role-context {
+    grid-template-columns: max-content minmax(0, 1fr);
+    padding-top: 18px;
+  }
+
+  .role-context a {
+    color: #f15a24;
+  }
+
+  .experience-details ul {
+    display: grid;
+    gap: 12px;
+    margin: 0;
+    padding-left: 20px;
+    color: #efe5c8;
+    line-height: 1.55;
+  }
+
+  .experience-details li::marker {
+    color: #f15a24;
+  }
+
+  @media (max-width: 920px) {
+    .signal-hero,
+    .signal-panels,
+    .experience-section {
+      display: block;
+    }
+
+    .signal-hero {
+      min-height: auto;
+    }
+
+    .scroll-indicator {
+      display: none;
+    }
+
+    .signal-rail {
+      margin-bottom: 24px;
+      writing-mode: horizontal-tb;
+      gap: 12px;
+    }
+
+    .signal-portrait-frame {
+      display: block;
+      width: min(280px, 72vw);
+      margin: 28px auto 0;
+      transform: none;
+    }
+
+    .signal-panels {
+      margin-top: 52px;
+    }
+
+    .signal-panel {
+      margin-top: 12px;
+    }
+
+    .section-heading {
+      position: static;
+      margin-bottom: 20px;
+    }
+  }
+
+  @media (min-width: 921px) and (max-width: 1320px) {
+    .signal-hero {
+      padding-right: 52px;
+      padding-bottom: 96px;
+    }
+
+    h1 {
+      max-width: 780px;
+      font-size: clamp(46px, 5.8vw, 84px);
+    }
+
+    .signal-portrait-frame {
+      width: min(280px, 100%);
+      transform: translateY(-28px);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .signal-page {
+      padding: 14px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 17vw, 72px);
+    }
+
+    .experience-item summary {
+      grid-template-columns: 1fr;
+    }
+
+    .summary-meta {
+      justify-items: start;
+      text-align: left;
+    }
+
+    .role-context {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
