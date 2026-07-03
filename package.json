@@ -10,7 +10,7 @@
     "build": "astro build",
     "dev": "astro dev --host 0.0.0.0 --port 4321",
     "preview": "astro preview",
-    "start": "astro dev",
+    "start": "astro dev --host 0.0.0.0 --port 4321",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky"
