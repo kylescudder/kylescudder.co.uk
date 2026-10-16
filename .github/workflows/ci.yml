@@ -1,0 +1,35 @@
+name: CI
+on:
+  pull_request:
+    branches: [master]
+  workflow_call:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Build and check formatting
+        run: |
+          docker run --rm -v "$PWD:/app" -w /app -e HUSKY=0 -e CI=true -e BUN_CONFIG_MAX_HTTP_REQUESTS=8 oven/bun:1.3.14@sha256:e10577f0db68676a7024391c6e5cb4b879ebd17188ab750cf10024a6d700e5c4 sh -c 'bun install --frozen-lockfile && bun run build && bun run format:check'
+      - name: Deployment verification and rollback tests
+        run: python3 -B -m unittest discover -s deploy -p 'test_*.py'
+      - name: Webhook authentication and queue tests
+        run: node --test deploy/receiver/server.test.mjs
+      - name: Verify the production container starts without privileges
+        run: |
+          docker build -t kylescudder-site:ci --build-arg PORTFOLIO_REVISION="$GITHUB_SHA" .
+          PORTFOLIO_IMAGE=kylescudder-site:ci docker compose -f compose.yaml config --quiet
+          docker network create platform-web
+          trap 'PORTFOLIO_IMAGE=kylescudder-site:ci docker compose -f compose.yaml down; docker network rm platform-web' EXIT
+          PORTFOLIO_IMAGE=kylescudder-site:ci docker compose -f compose.yaml up -d --wait --wait-timeout 60
+          docker exec kylescudder-site-kylescudder-site-1 wget -qO- http://127.0.0.1:8080/healthz
+          for path in / /work/ /redesigns/ /CV.pdf; do
+            docker exec kylescudder-site-kylescudder-site-1 wget -qO /dev/null "http://127.0.0.1:8080$path"
+          done
+          status=$(docker exec kylescudder-site-kylescudder-site-1 wget -S -O - http://127.0.0.1:8080/missing-page 2>&1 || true)
+          echo "$status" | grep -q '404 Not Found'

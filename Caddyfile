@@ -1,0 +1,26 @@
+{
+    admin off
+    auto_https off
+    persist_config off
+}
+:8080 {
+    @www host www.kylescudder.co.uk
+    redir @www https://kylescudder.co.uk{uri} 301
+    encode zstd gzip
+    handle /healthz {
+        header Cache-Control no-store
+        header X-Portfolio-Revision {$PORTFOLIO_REVISION}
+        respond "ok" 200
+    }
+    handle {
+        root * /srv
+        header /_astro/* Cache-Control "public, max-age=31536000, immutable"
+        try_files {path} {path}/index.html =404
+        file_server
+    }
+    handle_errors {
+        root * /srv
+        rewrite * /404.html
+        file_server
+    }
+}

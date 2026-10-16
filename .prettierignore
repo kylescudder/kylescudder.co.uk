@@ -3,3 +3,8 @@ node_modules/
 .netlify/
 .astro/
 pnpm-lock.yaml
+
+secrets/
+state/
+backups/
+deploy-spool/

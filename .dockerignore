@@ -1,0 +1,10 @@
+*
+!package.json
+!bun.lock
+!astro.config.mjs
+!tsconfig.json
+!Caddyfile
+!src
+!src/**
+!public
+!public/**
