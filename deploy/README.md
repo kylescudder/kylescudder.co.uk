@@ -18,8 +18,8 @@ Checkout: `/Users/kyle/platform/apps/kylescudder`. App network alias:
 `kylescudder-site:8080` on `platform-web`; no host port or database.
 Receiver: `kylescudder-site-deploy-hook:9000`, exposed only at
 `https://deploy-site.kylescudder.co.uk/hooks/kylescudder-site`.
-Cloudflare Access protects the entire deployment hostname using only the dedicated
-`github-kylescudder-site-deploy` service token. The receiver has no Docker socket
+Cloudflare Access must protect the entire deployment hostname using only the dedicated
+`github-kylescudder-site-deploy` service token before its route is exposed. The receiver has no Docker socket
 and writes only its private queue. No SSH or self-hosted GitHub runner is used.
 
 GitHub environment `production` permits `master` only and holds
@@ -49,5 +49,16 @@ The event-driven LaunchAgent runs as Kyle, the Colima owner. Kyle's login sessio
 and Colima must be running. Pause new releases with
 `gh variable set DEPLOY_ENABLED --body false --repo kylescudder/kylescudder.co.uk`.
 Host deploy tooling and Compose changes require a deliberate checkout update;
-normal site releases only change the attested image. The old Netlify project is
-removed after public HTTPS and an automatic deployment have been verified.
+normal site releases only change the attested image. The old Netlify project was deleted on 16 October 2026 after public HTTPS and the
+attested GitHub image were verified. Its netlify.app URL returns 404.
+
+## Bootstrap status: 16 October 2026
+
+GitHub CI, multi-platform publication, provenance verification and a manual
+attested deployment have passed. The production site is running on Herman.
+`DEPLOY_ENABLED=false` gates automatic CD until the dedicated Access service token
+is provisioned. The current account API credential needs Account → Access:
+Service Tokens → Edit; service-token creation returns `403 auth.forbidden`.
+The receiver and LaunchAgent are installed privately, and the deployment hostname
+is not exposed. After provisioning Access and both GitHub Access secrets, register
+the exact hook path, enable deployment and run the workflow to verify automatic CD.
