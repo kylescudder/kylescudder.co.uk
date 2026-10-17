@@ -1,5 +1,5 @@
 # Publishes a checked, attested image for every commit on master. GitHub holds
-# only webhook/Access credentials, never Atlassian or shell access.
+# only webhook/Access credentials, never machine shell access.
 name: Deploy portfolio
 
 on:
