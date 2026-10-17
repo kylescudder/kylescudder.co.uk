@@ -57,8 +57,10 @@ attested GitHub image were verified. Its netlify.app URL returns 404.
 GitHub CI, multi-platform publication, provenance verification and a manual
 attested deployment have passed. The production site is running on Herman.
 `DEPLOY_ENABLED=false` gates automatic CD until the dedicated Access service token
-is provisioned. The current account API credential needs Account → Access:
-Service Tokens → Edit; service-token creation returns `403 auth.forbidden`.
+is provisioned. Service-token creation returns `403 auth.forbidden` despite the credential being
+active. On 17 October Kyle reported that Account → Access: Service Tokens → Edit
+should already be granted. Token-policy inspection and changes are also forbidden,
+so the missing-permission diagnosis is unconfirmed.
 The receiver and LaunchAgent are installed privately, and the deployment hostname
 is not exposed. After provisioning Access and both GitHub Access secrets, register
 the exact hook path, enable deployment and run the workflow to verify automatic CD.
