@@ -47,7 +47,7 @@
     "@babel/core": "7.29.7",
     "rollup": "4.62.2",
     "smol-toml": "1.7.0",
-    "svgo": "4.0.1",
+    "svgo": "4.1.0",
     "esbuild": "0.28.1",
     "mdast-util-to-hast": "13.2.1",
     "picomatch": "4.0.5"
