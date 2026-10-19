@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Deploy independently verified master images, consuming the newest queued request."""
+"""Deploy independently verified main images, consuming the newest queued request."""
 from datetime import datetime, timezone
 import fcntl
 import json
@@ -143,7 +143,7 @@ def deploy(digest, requested_revision=None):
         return
     log(f'verifying {candidate}')
     run(['gh', 'attestation', 'verify', f'oci://{candidate}', '--bundle-from-oci', '--repo', REPO,
-         '--signer-workflow', REPO + '/.github/workflows/deploy.yml', '--source-ref', 'refs/heads/master',
+         '--signer-workflow', REPO + '/.github/workflows/deploy.yml', '--source-ref', 'refs/heads/main',
          '--deny-self-hosted-runners'], timeout=180)
     run(['docker', 'pull', '--quiet', candidate], timeout=300)
     labels = json.loads(run(['docker', 'image', 'inspect', '--format', '{{json .Config.Labels}}', candidate])) or {}
