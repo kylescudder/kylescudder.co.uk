@@ -89,6 +89,15 @@ class Deploy(unittest.TestCase):
         if args[0]=='exec':kwargs['output'].write(b'{"films":[]}')
         return b''
 
+    def test_verification_requires_main_and_expected_workflow(self):
+        with patch.object(module,'run',self.fake_run),patch.object(module,'compose',self.fake_compose),patch.object(module,'start'):
+            module.deploy(D,R)
+        verification = [call for call in self.calls if call[0] == 'gh']
+        self.assertEqual(verification, [['gh', 'attestation', 'verify', f'oci://{module.IMAGE}@{D}',
+            '--bundle-from-oci', '--repo', module.REPO,
+            '--signer-workflow', module.REPO + '/.github/workflows/deploy.yml',
+            '--source-ref', 'refs/heads/main', '--deny-self-hosted-runners']])
+
     def test_failed_verification_never_migrates_or_starts(self):
         def run(args,**kwargs):
             if args[0]=='gh':raise module.Error('verification rejected')

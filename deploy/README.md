@@ -3,11 +3,11 @@
 `https://kylescudder.co.uk` serves static Astro output in an unprivileged Caddy
 container; `www` redirects to the canonical domain, preserving paths and queries.
 
-Every push to `master` runs `.github/workflows/deploy.yml`. GitHub-hosted CI checks
+Every push to `main` runs `.github/workflows/deploy.yml`. GitHub-hosted CI checks
 the locked build, formatting, webhook security, provenance rejection and rollback,
 then builds AMD64/ARM64 images and publishes an immutable GHCR digest with GitHub
 provenance. An Access-authenticated HMAC webhook queues the digest on Herman.
-The host verifies the repository, workflow, `master` ref, hosted-runner provenance
+The host verifies the repository, workflow, `main` ref, hosted-runner provenance
 and requested revision before deploying. Failed container health checks restore
 the previous image. GitHub waits for the public revision before declaring success.
 Pull requests run the same CI without publishing or deploying.
@@ -23,7 +23,7 @@ Cloudflare Access protects the entire deployment hostname using only the dedicat
 path; other authenticated paths return 404. The receiver has no Docker socket
 and writes only its private queue. No SSH or self-hosted GitHub runner is used.
 
-GitHub environment `production` permits `master` only and holds
+GitHub environment `production` must permit `main` only and holds
 `CF_ACCESS_CLIENT_ID`, `CF_ACCESS_CLIENT_SECRET`, and `DEPLOY_WEBHOOK_SECRET`.
 Repository variables: `DEPLOY_ENABLED=true` and
 `SITE_BASE_URL=https://kylescudder.co.uk`. The dedicated Cloudflare service token
@@ -50,5 +50,20 @@ The event-driven LaunchAgent runs as Kyle, the Colima owner. Kyle's login sessio
 and Colima must be running. Pause new releases with
 `gh variable set DEPLOY_ENABLED --body false --repo kylescudder/kylescudder.co.uk`.
 Host deploy tooling and Compose changes require a deliberate checkout update;
-normal site releases only change the attested image. The old Netlify project was deleted on 16 October 2026 after public HTTPS and the
+normal site releases only change the attested image.
+
+### Branch migration rollout
+
+The default branch and both workflow filters are `main`. GitHub does not update
+custom environment branch policies when a branch is renamed: change the
+`production` environment's allowed deployment branch to `main` before the first
+release. Do not dispatch a release until Herman's installed
+`deploy/herman-deploy.py` requires `--source-ref refs/heads/main`.
+
+The host LaunchAgent invokes that Python file from this checkout for each queued
+request. Updating its branch check needs no LaunchAgent restart; normal image
+releases do not update the host verifier. Keep `.env`, `.env.deploy-hook`, secrets,
+state, backups and the deploy spool intact when updating the source checkout.
+
+The old Netlify project was deleted on 16 October 2026 after public HTTPS and the
 attested GitHub image were verified. Its netlify.app URL returns 404.
