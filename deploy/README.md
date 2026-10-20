@@ -29,7 +29,7 @@ Pull requests run the same CI without publishing or deploying.
 
 ## Deployer
 
-`application hooks` holds this app's settings and hooks; the
+Application-specific behavior is in `hooks.py`; deployment definitions are central.
 
 ## Configuration
 
@@ -76,7 +76,7 @@ The default branch and both workflow filters are `main`. GitHub does not update
 custom environment branch policies when a branch is renamed: change the
 `production` environment's allowed deployment branch to `main` before the first
 release. Do not dispatch a release until the host's installed
-`application hooks` requires `--source-ref refs/heads/main`.
+The central app definition requires `--source-ref refs/heads/main`.
 
 The host LaunchAgent invokes that Python file from this checkout for each queued
 request. Updating its branch check needs no LaunchAgent restart; normal image
