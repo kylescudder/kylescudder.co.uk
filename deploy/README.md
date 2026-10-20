@@ -1,5 +1,19 @@
 # Portfolio on the host
 
+## Shared deployment service
+
+This app is registered as `kylescudder-site` in the central deployment registry
+`/Users/kyle/platform/deploy-core/apps.json`. LaunchAgent
+`com.kylescudder.deploy-core` runs the single installed engine. Application hooks
+are not needed; the receiver, credentials, queues,
+state and database contracts below remain app-specific. Manual deployment uses
+`./deploy/host-deploy.sh sha256:<digest>`.
+
+Engine updates, application registration, failure inspection and service rollback
+are documented in [deploy-core](https://github.com/kylescudder/deploy-core).
+There are no vendored engine files, lock files or sync PRs. Do not install an
+app-specific LaunchAgent. Apply future engine changes once through the central service.
+
 `https://kylescudder.co.uk` serves static Astro output in an unprivileged Caddy
 container; `www` redirects to the canonical domain, preserving paths and queries.
 
@@ -14,10 +28,7 @@ Pull requests run the same CI without publishing or deploying.
 
 ## Deployer
 
-`deploy/host-deploy.py` holds this app's settings and hooks; the
-shared flow is `deploy/deploy_core.py`, vendored unchanged from
-`kylescudder/deploy-core` (see `deploy/deploy_core.lock`). Change the core
-there and sync it; CI fails if the vendored copy is edited here.
+Application-specific behavior is in `hooks.py`; deployment definitions are central.
 
 ## Configuration
 
@@ -47,8 +58,7 @@ code, secrets and release records.
 
 ```sh
 docker compose -f deploy/compose.deploy-hook.yaml --env-file .env.deploy-hook up -d --wait
-python3 -B deploy/host-deploy.py --install <host LocalHostName>
-launchctl print gui/501/com.kylescudder.kylescudder-site-deploy
+launchctl print gui/501/com.kylescudder.deploy-core
 tail -n 100 state/deploy.log
 ./deploy/host-deploy.sh sha256:<previous-verified-digest>
 ```
@@ -65,7 +75,7 @@ The default branch and both workflow filters are `main`. GitHub does not update
 custom environment branch policies when a branch is renamed: change the
 `production` environment's allowed deployment branch to `main` before the first
 release. Do not dispatch a release until the host's installed
-`deploy/host-deploy.py` requires `--source-ref refs/heads/main`.
+The central app definition requires `--source-ref refs/heads/main`.
 
 The host LaunchAgent invokes that Python file from this checkout for each queued
 request. Updating its branch check needs no LaunchAgent restart; normal image
