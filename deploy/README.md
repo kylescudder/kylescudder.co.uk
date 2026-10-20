@@ -14,7 +14,6 @@ are documented in [deploy-core](https://github.com/kylescudder/deploy-core).
 There are no vendored engine files, lock files or sync PRs. Do not install an
 app-specific LaunchAgent. Apply future engine changes once through the central service.
 
-
 `https://kylescudder.co.uk` serves static Astro output in an unprivileged Caddy
 container; `www` redirects to the canonical domain, preserving paths and queries.
 
