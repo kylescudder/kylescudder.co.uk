@@ -1,4 +1,4 @@
-# Portfolio on Herman
+# Portfolio on the host
 
 `https://kylescudder.co.uk` serves static Astro output in an unprivileged Caddy
 container; `www` redirects to the canonical domain, preserving paths and queries.
@@ -6,11 +6,18 @@ container; `www` redirects to the canonical domain, preserving paths and queries
 Every push to `main` runs `.github/workflows/deploy.yml`. GitHub-hosted CI checks
 the locked build, formatting, webhook security, provenance rejection and rollback,
 then builds AMD64/ARM64 images and publishes an immutable GHCR digest with GitHub
-provenance. An Access-authenticated HMAC webhook queues the digest on Herman.
+provenance. An Access-authenticated HMAC webhook queues the digest on the host.
 The host verifies the repository, workflow, `main` ref, hosted-runner provenance
 and requested revision before deploying. Failed container health checks restore
 the previous image. GitHub waits for the public revision before declaring success.
 Pull requests run the same CI without publishing or deploying.
+
+## Deployer
+
+`deploy/host-deploy.py` holds this app's settings and hooks; the
+shared flow is `deploy/deploy_core.py`, vendored unchanged from
+`kylescudder/deploy-core` (see `deploy/deploy_core.lock`). Change the core
+there and sync it; CI fails if the vendored copy is edited here.
 
 ## Configuration
 
@@ -40,10 +47,10 @@ code, secrets and release records.
 
 ```sh
 docker compose -f deploy/compose.deploy-hook.yaml --env-file .env.deploy-hook up -d --wait
-python3 -B deploy/install-launchd.py
-launchctl print gui/501/com.herman.kylescudder-site-deploy
+python3 -B deploy/host-deploy.py --install <host LocalHostName>
+launchctl print gui/501/com.kylescudder.kylescudder-site-deploy
 tail -n 100 state/deploy.log
-./deploy/herman-deploy.sh sha256:<previous-verified-digest>
+./deploy/host-deploy.sh sha256:<previous-verified-digest>
 ```
 
 The event-driven LaunchAgent runs as Kyle, the Colima owner. Kyle's login session
@@ -57,8 +64,8 @@ normal site releases only change the attested image.
 The default branch and both workflow filters are `main`. GitHub does not update
 custom environment branch policies when a branch is renamed: change the
 `production` environment's allowed deployment branch to `main` before the first
-release. Do not dispatch a release until Herman's installed
-`deploy/herman-deploy.py` requires `--source-ref refs/heads/main`.
+release. Do not dispatch a release until the host's installed
+`deploy/host-deploy.py` requires `--source-ref refs/heads/main`.
 
 The host LaunchAgent invokes that Python file from this checkout for each queued
 request. Updating its branch check needs no LaunchAgent restart; normal image
