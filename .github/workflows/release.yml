@@ -1,6 +1,6 @@
 # Publishes a checked, attested image for every commit on main. GitHub holds
 # only webhook/Access credentials, never machine shell access.
-name: Deploy portfolio
+name: Release
 
 on:
   push:
@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: deploy-portfolio-release
+  group: release
   cancel-in-progress: false
 
 env:
@@ -173,7 +173,7 @@ jobs:
             -H "CF-Access-Client-Id: $CF_ACCESS_CLIENT_ID" \
             -H "CF-Access-Client-Secret: $CF_ACCESS_CLIENT_SECRET" \
             --data "$body"
-      - name: Wait for production to run this commit
+      - name: Wait for production
         run: |
           for attempt in $(seq 60); do
             revision=$(curl --fail --silent --max-time 10 --dump-header - --output /dev/null "$HEALTH_URL" \

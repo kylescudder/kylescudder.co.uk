@@ -3,7 +3,7 @@ import type { Links, Page } from './types'
 // Work Page
 export const WORK: Page = {
   TITLE: 'Work',
-  DESCRIPTION: 'Places I have worked.',
+  DESCRIPTION: 'Places I have worked.'
 }
 
 export const LINKS = {
@@ -13,39 +13,39 @@ export const LINKS = {
   instagram: 'https://www.instagram.com/scudderkyle/',
   discord: 'https://discordapp.com/users/littlescud',
   letterboxd: 'https://letterboxd.com/LITTLESCUD/',
-  rhiannbulldesigns: 'https://rhiannbulldesigns.co.uk',
+  rhiannbulldesigns: 'https://rhiannbulldesigns.co.uk'
 }
 
 // ProjectsPage
 export const PROJECTS: Links = [
   {
     TEXT: 'LGTM',
-    HREF: 'https://github.com/kylescudder/lgtm',
+    HREF: 'https://github.com/kylescudder/lgtm'
   },
   {
     TEXT: 'Balm',
-    HREF: 'https://github.com/kylescudder/balm',
+    HREF: 'https://github.com/kylescudder/balm'
   },
   {
     TEXT: 'Spark Plug',
-    HREF: 'https://github.com/kylescudder/spark-plug',
+    HREF: 'https://github.com/kylescudder/spark-plug'
   },
   {
     TEXT: 'Spark Plug Raycast',
-    HREF: 'https://github.com/kylescudder/spark-plug-raycast',
+    HREF: 'https://github.com/kylescudder/spark-plug-raycast'
   },
   {
     TEXT: 'Dead Wax Club',
-    HREF: 'https://github.com/kylescudder/deadwaxclub',
+    HREF: 'https://github.com/kylescudder/deadwaxclub'
   },
   {
     TEXT: 'Recipe Saver',
-    HREF: 'https://github.com/kylescudder/recipe-saver',
+    HREF: 'https://github.com/kylescudder/recipe-saver'
   },
   {
     TEXT: 'Diald Club',
-    HREF: 'https://github.com/kylescudder/dialdclub',
-  },
+    HREF: 'https://github.com/kylescudder/dialdclub'
+  }
 ]
 
 export const EXPERIENCE = [
@@ -60,8 +60,8 @@ export const EXPERIENCE = [
       'Mentor and coach junior and mid-level engineers through regular pair-programming and code reviews, accelerating their ramp-up and autonomy.',
       'Led Shape Up methodology cycles across the development team, helping give estimates for scopes, allowing an appetite to be determined, and to track bets to ensure scoped, high-value deliveries.',
       'Participated in interviews for new junior and mid-level candidates, helped shape the technical portion of the process, and onboarding.',
-      'Implemented security best practices, including data encryption and access controls, to safeguard sensitive information.',
-    ],
+      'Implemented security best practices, including data encryption and access controls, to safeguard sensitive information.'
+    ]
   },
   {
     company: 'Crimson Tide',
@@ -74,8 +74,8 @@ export const EXPERIENCE = [
       'Developed and maintained server-side applications using C# and .NET Core, with a focus on high-performance, scalable architecture.',
       'Built and optimized RESTful and GraphQL APIs for data exchange between server and client, enhancing application speed and reliability.',
       'Collaborated with external and contractor developers and cross-functional teams to define requirements, align on deliverables, and optimize application performance.',
-      'Implemented security best practices, including data encryption and access controls, to safeguard sensitive information.',
-    ],
+      'Implemented security best practices, including data encryption and access controls, to safeguard sensitive information.'
+    ]
   },
   {
     company: 'Paloma Systems Ltd',
@@ -89,8 +89,8 @@ export const EXPERIENCE = [
       'Provided technical guidance and mentorship to junior developers, facilitating skill development and fostering a collaborative team environment.',
       'Coordinated with stakeholders to define project goals, scope, and technical requirements, translating business objectives into actionable development plans.',
       'Conducted code reviews and enforced coding standards to ensure code quality, maintainability, and adherence to company and industry best practices.',
-      'Managed project timelines, resource allocation, and risk mitigation to ensure on-time and within-budget delivery of high-impact projects.',
-    ],
+      'Managed project timelines, resource allocation, and risk mitigation to ensure on-time and within-budget delivery of high-impact projects.'
+    ]
   },
   {
     company: 'Paloma Systems Ltd',
@@ -103,8 +103,8 @@ export const EXPERIENCE = [
       'Designed, developed, and maintained applications using the .NET framework, focusing on C#, ASP.NET, and Entity Framework to create robust, scalable solutions.',
       'Implemented RESTful APIs and integrated third-party services to enhance functionality and interoperability of applications.',
       'Utilized Microsoft SQL Server for data storage, creating optimized queries, stored procedures, and database structures to support application requirements.',
-      'Ensured high code quality by writing unit tests, conducting code reviews, and adhering to software best practices and design patterns.',
-    ],
+      'Ensured high code quality by writing unit tests, conducting code reviews, and adhering to software best practices and design patterns.'
+    ]
   },
   {
     company: 'Paloma Systems Ltd',
@@ -117,7 +117,7 @@ export const EXPERIENCE = [
       'Delivered technical support for software applications, troubleshooting issues and providing effective solutions to ensure minimal disruption for end-users.',
       'Documented known issues, updates, and troubleshooting steps in the knowledge base to improve team efficiency and streamline user assistance.',
       'Collaborated with development teams to relay bug reports, feature requests, and enhancements based on user feedback.',
-      'Utilized ticketing systems and monitoring tools to track performance metrics and identify trends in common support issues.',
-    ],
-  },
+      'Utilized ticketing systems and monitoring tools to track performance metrics and identify trends in common support issues.'
+    ]
+  }
 ]

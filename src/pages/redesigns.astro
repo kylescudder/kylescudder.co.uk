@@ -9,102 +9,100 @@ const recentExperience = EXPERIENCE.slice(0, 3)
 const contacts = [
   { label: 'GitHub', href: LINKS.github },
   { label: 'LinkedIn', href: LINKS.linkedin },
-  { label: 'Email', href: LINKS.mail },
+  { label: 'Email', href: LINKS.mail }
 ]
 ---
 
-<html lang="en">
+<html lang='en'>
   <head>
     <HeadSEO
-      title="Kyle Scudder - Portfolio Redesign Concepts"
-      description="Five competing portfolio redesign directions for Kyle Scudder."
+      title='Kyle Scudder - Portfolio Redesign Concepts'
+      description='Five competing portfolio redesign directions for Kyle Scudder.'
       ogImage={new URL('me.png', Astro.url)}
     />
   </head>
   <body>
-    <nav class="concept-nav" aria-label="Redesign concepts">
-      <a href="/">Current Site</a>
-      <a href="#signal">01 Signal</a>
-      <a href="#ledger">02 Ledger</a>
-      <a href="#midnight">03 Midnight</a>
-      <a href="#coast">04 Coast</a>
-      <a href="#forge">05 Forge</a>
+    <nav class='concept-nav' aria-label='Redesign concepts'>
+      <a href='/'>Current Site</a>
+      <a href='#signal'>01 Signal</a>
+      <a href='#ledger'>02 Ledger</a>
+      <a href='#midnight'>03 Midnight</a>
+      <a href='#coast'>04 Coast</a>
+      <a href='#forge'>05 Forge</a>
     </nav>
 
     <main>
       <section
-        id="signal"
-        class="concept signal"
-        aria-labelledby="signal-title"
+        id='signal'
+        class='concept signal'
+        aria-labelledby='signal-title'
       >
-        <div class="signal-grid">
-          <aside class="signal-rail">
+        <div class='signal-grid'>
+          <aside class='signal-rail'>
             <span>Hastings, UK</span>
             <span>Senior Back End Developer</span>
             <span>Available for focused engineering work</span>
           </aside>
-          <div class="signal-hero">
-            <p class="eyebrow">Concept 01 / Signal Room</p>
-            <h1 id="signal-title">
+          <div class='signal-hero'>
+            <p class='eyebrow'>Concept 01 / Signal Room</p>
+            <h1 id='signal-title'>
               Kyle Scudder builds the quiet machinery behind useful products.
             </h1>
             <p>
               Back end developer with a bias for shipping reliable systems,
               readable APIs, and tools people actually keep using.
             </p>
-            <div class="action-row">
-              {
-                contacts.map((contact) => (
-                  <a href={contact.href}>{contact.label}</a>
-                ))
-              }
+            <div class='action-row'>
+              {contacts.map((contact) => (
+                <a href={contact.href}>{contact.label}</a>
+              ))}
             </div>
           </div>
           <img
-            class="signal-portrait"
-            src="/me.png"
-            alt="Memoji portrait of Kyle Scudder"
+            class='signal-portrait'
+            src='/me.png'
+            alt='Memoji portrait of Kyle Scudder'
           />
-          <div class="signal-panel panel-stack">
+          <div class='signal-panel panel-stack'>
             <h2>Stack</h2>
             <div>
-              {stack.map((item) => <span>{item}</span>)}
+              {stack.map((item) => (
+                <span>{item}</span>
+              ))}
             </div>
           </div>
-          <div class="signal-panel panel-now">
+          <div class='signal-panel panel-now'>
             <h2>Now</h2>
             <p>Learning Rust and ricing a Linux install.</p>
           </div>
-          <div class="signal-panel panel-work">
+          <div class='signal-panel panel-work'>
             <h2>Recent</h2>
-            {
-              recentExperience.map((role) => (
-                <article>
-                  <strong>{role.position}</strong>
-                  <span>{role.company}</span>
-                </article>
-              ))
-            }
+            {recentExperience.map((role) => (
+              <article>
+                <strong>{role.position}</strong>
+                <span>{role.company}</span>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
       <section
-        id="ledger"
-        class="concept ledger"
-        aria-labelledby="ledger-title"
+        id='ledger'
+        class='concept ledger'
+        aria-labelledby='ledger-title'
       >
-        <div class="ledger-shell">
+        <div class='ledger-shell'>
           <header>
             <p>Concept 02</p>
             <a href={LINKS.mail}>kyle@kylescudder.co.uk</a>
           </header>
-          <div class="ledger-masthead">
-            <h1 id="ledger-title">Kyle Scudder</h1>
-            <img src="/me.png" alt="Memoji portrait of Kyle Scudder" />
+          <div class='ledger-masthead'>
+            <h1 id='ledger-title'>Kyle Scudder</h1>
+            <img src='/me.png' alt='Memoji portrait of Kyle Scudder' />
           </div>
-          <div class="ledger-columns">
-            <article class="lede">
+          <div class='ledger-columns'>
+            <article class='lede'>
               <span>Profile</span>
               <p>
                 Senior back end developer from Hastings, England. I design,
@@ -114,25 +112,21 @@ const contacts = [
             </article>
             <article>
               <span>Selected Work</span>
-              {
-                recentExperience.map((role) => (
-                  <p>
-                    <b>{role.position}</b> at {role.company}, {role.start} -{' '}
-                    {role.end}
-                  </p>
-                ))
-              }
+              {recentExperience.map((role) => (
+                <p>
+                  <b>{role.position}</b> at {role.company}, {role.start} -{' '}
+                  {role.end}
+                </p>
+              ))}
             </article>
             <article>
               <span>Projects</span>
               <ul>
-                {
-                  featuredProjects.map((project) => (
-                    <li>
-                      <a href={project.HREF}>{project.TEXT}</a>
-                    </li>
-                  ))
-                }
+                {featuredProjects.map((project) => (
+                  <li>
+                    <a href={project.HREF}>{project.TEXT}</a>
+                  </li>
+                ))}
               </ul>
             </article>
           </div>
@@ -140,14 +134,14 @@ const contacts = [
       </section>
 
       <section
-        id="midnight"
-        class="concept midnight"
-        aria-labelledby="midnight-title"
+        id='midnight'
+        class='concept midnight'
+        aria-labelledby='midnight-title'
       >
-        <div class="midnight-poster">
-          <div class="poster-copy">
-            <p class="eyebrow">Concept 03 / Midnight Feature</p>
-            <h1 id="midnight-title">
+        <div class='midnight-poster'>
+          <div class='poster-copy'>
+            <p class='eyebrow'>Concept 03 / Midnight Feature</p>
+            <h1 id='midnight-title'>
               Systems with bite. Interfaces without noise.
             </h1>
             <p>
@@ -155,13 +149,13 @@ const contacts = [
               fast APIs, horror shelves, live music, tattoos, and software that
               survives production.
             </p>
-            <div class="poster-links">
+            <div class='poster-links'>
               <a href={LINKS.github}>View GitHub</a>
-              <a href="/CV.pdf">Download CV</a>
+              <a href='/CV.pdf'>Download CV</a>
             </div>
           </div>
-          <img src="/me.png" alt="Memoji portrait of Kyle Scudder" />
-          <div class="poster-card">
+          <img src='/me.png' alt='Memoji portrait of Kyle Scudder' />
+          <div class='poster-card'>
             <span>Current Role</span>
             <strong>Senior Back End Developer</strong>
             <p>Crimson Tide / mpro5</p>
@@ -169,24 +163,24 @@ const contacts = [
         </div>
       </section>
 
-      <section id="coast" class="concept coast" aria-labelledby="coast-title">
-        <div class="coast-shell">
-          <div class="coast-intro">
-            <p class="eyebrow">Concept 04 / South Coast Studio</p>
-            <h1 id="coast-title">
+      <section id='coast' class='concept coast' aria-labelledby='coast-title'>
+        <div class='coast-shell'>
+          <div class='coast-intro'>
+            <p class='eyebrow'>Concept 04 / South Coast Studio</p>
+            <h1 id='coast-title'>
               Reliable back end craft with a coastal sense of space.
             </h1>
             <p>
               Calm, precise, and product-focused. A portfolio direction built
               around trust, technical depth, and room to read.
             </p>
-            <div class="coast-actions">
+            <div class='coast-actions'>
               <a href={LINKS.linkedin}>LinkedIn</a>
               <a href={LINKS.mail}>Email</a>
             </div>
           </div>
-          <img src="/me.png" alt="Memoji portrait of Kyle Scudder" />
-          <div class="coast-board">
+          <img src='/me.png' alt='Memoji portrait of Kyle Scudder' />
+          <div class='coast-board'>
             <article>
               <span>Core</span>
               <strong>.NET / C# / APIs</strong>
@@ -203,38 +197,42 @@ const contacts = [
         </div>
       </section>
 
-      <section id="forge" class="concept forge" aria-labelledby="forge-title">
-        <div class="forge-shell">
-          <div class="forge-head">
+      <section id='forge' class='concept forge' aria-labelledby='forge-title'>
+        <div class='forge-shell'>
+          <div class='forge-head'>
             <p>Concept 05 / Forge Console</p>
-            <h1 id="forge-title">
+            <h1 id='forge-title'>
               Backend systems, shipped with pressure-tested judgement.
             </h1>
           </div>
-          <div class="forge-layout">
-            <img src="/me.png" alt="Memoji portrait of Kyle Scudder" />
-            <div class="forge-terminal">
+          <div class='forge-layout'>
+            <img src='/me.png' alt='Memoji portrait of Kyle Scudder' />
+            <div class='forge-terminal'>
               <div>
-                <span>$ whoami</span><p>
-                  Kyle Scudder - Senior Back End Developer
-                </p>
+                <span>$ whoami</span>
+                <p>Kyle Scudder - Senior Back End Developer</p>
               </div>
               <div>
-                <span>$ current</span><p>
+                <span>$ current</span>
+                <p>
                   Crimson Tide, mentoring engineers and delivering scoped
                   product bets.
                 </p>
               </div>
-              <div><span>$ stack</span><p>{stack.join(' / ')}</p></div>
-              <div><span>$ contact</span><p>github.com/kylescudder</p></div>
+              <div>
+                <span>$ stack</span>
+                <p>{stack.join(' / ')}</p>
+              </div>
+              <div>
+                <span>$ contact</span>
+                <p>github.com/kylescudder</p>
+              </div>
             </div>
-            <aside class="forge-projects">
+            <aside class='forge-projects'>
               <h2>Repos</h2>
-              {
-                featuredProjects.map((project) => (
-                  <a href={project.HREF}>{project.TEXT}</a>
-                ))
-              }
+              {featuredProjects.map((project) => (
+                <a href={project.HREF}>{project.TEXT}</a>
+              ))}
             </aside>
           </div>
         </div>

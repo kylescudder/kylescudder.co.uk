@@ -6,30 +6,29 @@ import { Button } from '../ui/button'
 const PDF = '/CV.pdf'
 ---
 
-<Card colSpan="md:col-span-1" rowSpan="md:row-span-4" title="CV">
-  <div class="mt-4 flex w-full justify-center">
-    <div
-      class="card card-compact w-96 gap-2 border-[oklch(var(--p))] transition-all md:w-112 lg:w-128"
-    >
+<Card colSpan='md:col-span-1' rowSpan='md:row-span-4' title='CV'>
+  <div class='mt-4 flex w-full justify-center'>
+    <div class='card card-compact w-96 gap-2 border-[oklch(var(--p))] transition-all md:w-112 lg:w-128'>
       <figure>
         <object
           data={PDF}
-          type="application/pdf"
-          width="100%"
-          aria-label="cv preview"
-          title="cv preview"
-          aria-labelledby="btnDownloadCV"></object>
+          type='application/pdf'
+          width='100%'
+          aria-label='cv preview'
+          title='cv preview'
+          aria-labelledby='btnDownloadCV'
+        ></object>
       </figure>
-      <div class="mt-4 flex flex-col gap-2">
-        <p class="dark:text-muted-foreground text-sm">
+      <div class='mt-4 flex flex-col gap-2'>
+        <p class='dark:text-muted-foreground text-sm'>
           View and download my CV by clicking on the button below
         </p>
-        <div class="card-actions mt-2 flex w-full items-center justify-center">
+        <div class='card-actions mt-2 flex w-full items-center justify-center'>
           <a
-            target="_blank"
+            target='_blank'
             href={PDF}
-            aria-label="Download CV"
-            id="btnDownloadCV"
+            aria-label='Download CV'
+            id='btnDownloadCV'
           >
             <Button>
               Download CV

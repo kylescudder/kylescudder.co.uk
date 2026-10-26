@@ -10,158 +10,156 @@ const featuredProjects = PROJECTS.slice(0, 5)
 const contacts = [
   { label: 'GitHub', href: LINKS.github },
   { label: 'LinkedIn', href: LINKS.linkedin },
-  { label: 'Email', href: LINKS.mail },
+  { label: 'Email', href: LINKS.mail }
 ]
 ---
 
-<html lang="en">
+<html lang='en'>
   <head>
     <HeadSEO
-      title="Kyle Scudder - Back End Developer"
-      description="Kyle Scudder is a senior back end developer building reliable APIs, internal tools, and product systems."
+      title='Kyle Scudder - Back End Developer'
+      description='Kyle Scudder is a senior back end developer building reliable APIs, internal tools, and product systems.'
       ogImage={new URL('me.png', Astro.url)}
     />
   </head>
   <body>
-    <main class="signal-page">
-      <section class="signal-hero" aria-labelledby="site-title">
-        <aside class="signal-rail" aria-label="Profile facts">
+    <main class='signal-page'>
+      <section class='signal-hero' aria-labelledby='site-title'>
+        <aside class='signal-rail' aria-label='Profile facts'>
           <span>Hastings, UK</span>
           <span>Senior Back End Developer</span>
           <span>Reliable APIs / Product Systems / Delivery</span>
         </aside>
 
-        <div class="hero-copy">
-          <p class="eyebrow">Backend Systems / Portfolio</p>
-          <h1 id="site-title">
+        <div class='hero-copy'>
+          <p class='eyebrow'>Backend Systems / Portfolio</p>
+          <h1 id='site-title'>
             Kyle Scudder builds the quiet machinery behind useful products.
           </h1>
           <p>
             Back end developer with a bias for shipping reliable systems,
             readable APIs, and tools people actually keep using.
           </p>
-          <nav class="action-row" aria-label="Contact links">
-            {
-              contacts.map((contact) => (
-                <a href={contact.href} aria-label={contact.label}>
-                  {contact.label}
-                </a>
-              ))
-            }
-            <a href="/CV.pdf" aria-label="Download CV">CV</a>
+          <nav class='action-row' aria-label='Contact links'>
+            {contacts.map((contact) => (
+              <a href={contact.href} aria-label={contact.label}>
+                {contact.label}
+              </a>
+            ))}
+            <a href='/CV.pdf' aria-label='Download CV'>
+              CV
+            </a>
           </nav>
         </div>
 
-        <div class="signal-portrait-frame">
+        <div class='signal-portrait-frame'>
           <Image
-            class="signal-portrait"
+            class='signal-portrait'
             src={portraitImage}
-            alt="Kyle Scudder"
+            alt='Kyle Scudder'
             widths={[280, 320, 640]}
-            sizes="(max-width: 920px) 72vw, 320px"
-            loading="eager"
-            fetchpriority="high"
+            sizes='(max-width: 920px) 72vw, 320px'
+            loading='eager'
+            fetchpriority='high'
           />
         </div>
 
         <a
-          class="scroll-indicator"
-          href="#profile-details"
-          aria-label="Scroll to profile details"
+          class='scroll-indicator'
+          href='#profile-details'
+          aria-label='Scroll to profile details'
         >
           <span>Scroll</span>
         </a>
       </section>
 
       <section
-        id="profile-details"
-        class="signal-panels"
-        aria-label="Profile details"
+        id='profile-details'
+        class='signal-panels'
+        aria-label='Profile details'
       >
-        <article class="signal-panel panel-stack">
+        <article class='signal-panel panel-stack'>
           <h2>Stack</h2>
           <div>
-            {stack.map((item) => <span>{item}</span>)}
+            {stack.map((item) => (
+              <span>{item}</span>
+            ))}
           </div>
         </article>
 
-        <article class="signal-panel panel-now">
+        <article class='signal-panel panel-now'>
           <h2>Now</h2>
           <p>
             Learning Swift, refining a Linux setup, and building with Astro.
           </p>
         </article>
 
-        <article class="signal-panel panel-projects">
+        <article class='signal-panel panel-projects'>
           <h2>Projects</h2>
           <div>
-            {
-              featuredProjects.map((project) => (
-                <a href={project.HREF} aria-label={project.TEXT}>
-                  {project.TEXT}
-                </a>
-              ))
-            }
+            {featuredProjects.map((project) => (
+              <a href={project.HREF} aria-label={project.TEXT}>
+                {project.TEXT}
+              </a>
+            ))}
           </div>
         </article>
       </section>
 
-      <section class="experience-section" aria-labelledby="experience-title">
-        <div class="section-heading">
-          <p class="eyebrow">Experience</p>
-          <h2 id="experience-title">
+      <section class='experience-section' aria-labelledby='experience-title'>
+        <div class='section-heading'>
+          <p class='eyebrow'>Experience</p>
+          <h2 id='experience-title'>
             A practical history of building and supporting software with
             real-world impact.
           </h2>
         </div>
 
-        <div class="experience-list">
-          {
-            EXPERIENCE.map((role, index) => (
-              <details class="experience-item" open={index === 0}>
-                <summary>
-                  <span class="summary-main">
-                    <span class="summary-title">{role.position}</span>
-                    <span class="summary-company">{role.company}</span>
+        <div class='experience-list'>
+          {EXPERIENCE.map((role, index) => (
+            <details class='experience-item' open={index === 0}>
+              <summary>
+                <span class='summary-main'>
+                  <span class='summary-title'>{role.position}</span>
+                  <span class='summary-company'>{role.company}</span>
+                </span>
+                <span class='summary-meta'>
+                  <span>
+                    {role.start} - {role.end}
                   </span>
-                  <span class="summary-meta">
-                    <span>
-                      {role.start} - {role.end}
-                    </span>
-                    <span class="summary-action">Details</span>
-                  </span>
-                </summary>
+                  <span class='summary-action'>Details</span>
+                </span>
+              </summary>
 
-                <div class="experience-details">
-                  <div class="role-context">
-                    <a href={role.link ?? ''} aria-label={role.company}>
-                      {role.company}
-                    </a>
-                    <span>{role.location}</span>
-                  </div>
-                  <ul>
-                    {role.tasks.map((task) => (
-                      <li>{task}</li>
-                    ))}
-                  </ul>
+              <div class='experience-details'>
+                <div class='role-context'>
+                  <a href={role.link ?? ''} aria-label={role.company}>
+                    {role.company}
+                  </a>
+                  <span>{role.location}</span>
                 </div>
-              </details>
-            ))
-          }
+                <ul>
+                  {role.tasks.map((task) => (
+                    <li>{task}</li>
+                  ))}
+                </ul>
+              </div>
+            </details>
+          ))}
         </div>
       </section>
 
-      <section class="personal-section" aria-labelledby="personal-title">
-        <div class="section-heading">
-          <p class="eyebrow">Elsewhere</p>
-          <h2 id="personal-title">The personal corners that still matter.</h2>
+      <section class='personal-section' aria-labelledby='personal-title'>
+        <div class='section-heading'>
+          <p class='eyebrow'>Elsewhere</p>
+          <h2 id='personal-title'>The personal corners that still matter.</h2>
         </div>
 
-        <div class="personal-grid">
+        <div class='personal-grid'>
           <a
-            class="personal-card"
+            class='personal-card'
             href={LINKS.rhiannbulldesigns}
-            aria-label="Visit Rhiann Bull Designs"
+            aria-label='Visit Rhiann Bull Designs'
           >
             <span>Rhiann Bull Designs</span>
             <h3>My wife's design studio and card shop.</h3>
@@ -173,9 +171,9 @@ const contacts = [
           </a>
 
           <a
-            class="personal-card"
+            class='personal-card'
             href={LINKS.letterboxd}
-            aria-label="Visit Kyle Scudder on Letterboxd"
+            aria-label='Visit Kyle Scudder on Letterboxd'
           >
             <span>Letterboxd</span>
             <h3>Films, horror shelves, and the occasional review.</h3>
