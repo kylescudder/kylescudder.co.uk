@@ -20,21 +20,19 @@ const { title, body, colSpan, rowSpan, href, colorText } = Astro.props
     colSpan || 'md:col-span-2'
   } ${rowSpan || ''} ${href ? 'hover:border-primary cursor-pointer' : ''}`}
 >
-  {
-    href ? (
-      <a href={href} class={`block h-full w-full ${colorText || ' '}`}>
-        <IconExternalLink
-          className="group-hover:text-primary position absolute right-6 "
-          size={20}
-        />
-        <ContentCard title={title} body={body}>
-          <slot />
-        </ContentCard>
-      </a>
-    ) : (
+  {href ? (
+    <a href={href} class={`block h-full w-full ${colorText || ' '}`}>
+      <IconExternalLink
+        className='group-hover:text-primary position absolute right-6 '
+        size={20}
+      />
       <ContentCard title={title} body={body}>
         <slot />
       </ContentCard>
-    )
-  }
+    </a>
+  ) : (
+    <ContentCard title={title} body={body}>
+      <slot />
+    </ContentCard>
+  )}
 </ShadcnCard>

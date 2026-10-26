@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import moment from 'moment-timezone'
 
 const Timezone = ({ timezone }: any) => {
@@ -16,7 +16,7 @@ const Timezone = ({ timezone }: any) => {
   return (
     <div>
       <p>{dateTime}</p>
-      <p className="text-primary-muted text-sm">
+      <p className='text-primary-muted text-sm'>
         🇬🇧Hastings, East Sussex, United Kingdom 🇬🇧
       </p>
     </div>

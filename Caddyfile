@@ -7,10 +7,11 @@
     @www host www.kylescudder.co.uk
     redir @www https://kylescudder.co.uk{uri} 301
     encode zstd gzip
+    header X-Portfolio-Revision {$PORTFOLIO_REVISION}
     handle /healthz {
         header Cache-Control no-store
-        header X-Portfolio-Revision {$PORTFOLIO_REVISION}
-        respond "ok" 200
+        header Content-Type application/json
+        respond `{"ok":true,"revision":"{$PORTFOLIO_REVISION}"}` 200
     }
     handle {
         root * /srv

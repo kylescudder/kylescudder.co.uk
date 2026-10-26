@@ -1,4 +1,4 @@
-FROM oven/bun:1.3.14@sha256:e10577f0db68676a7024391c6e5cb4b879ebd17188ab750cf10024a6d700e5c4 AS build
+FROM oven/bun:1.4.4@sha256:1d22548f177f4ff38e0c15baa3c2c46c6c2060ba2d1bc573bb4720b407548f1d AS build
 WORKDIR /app
 ENV CI=true HUSKY=0 BUN_CONFIG_MAX_HTTP_REQUESTS=8
 COPY package.json bun.lock ./
@@ -8,7 +8,9 @@ COPY src ./src
 COPY public ./public
 RUN bun run build
 
-FROM caddy:2.11.7@sha256:8dc9fa87b36b25303d1c67d2a09f5824b7f3bfd72cb052f246e5da2133fe29a8
+FROM caddy:2.11.7@sha256:504a44d7d74bd2bc28a66afc4774912fc21223ca8a67734af1c54ab2f999b489
+# Port 8080 needs no privileged bind capability; drop the upstream file capability
+# so the binary can execute with the runtime capability set empty.
 RUN setcap -r /usr/bin/caddy
 COPY --from=build /app/dist /srv
 COPY Caddyfile /etc/caddy/Caddyfile

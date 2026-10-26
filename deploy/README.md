@@ -17,7 +17,7 @@ app-specific LaunchAgent. Apply future engine changes once through the central s
 `https://kylescudder.co.uk` serves static Astro output in an unprivileged Caddy
 container; `www` redirects to the canonical domain, preserving paths and queries.
 
-Every push to `main` runs `.github/workflows/deploy.yml`. GitHub-hosted CI checks
+Every push to `main` runs `.github/workflows/release.yml`. GitHub-hosted CI checks
 the locked build, formatting, webhook security, provenance rejection and rollback,
 then builds AMD64/ARM64 images and publishes an immutable GHCR digest with GitHub
 provenance. An Access-authenticated HMAC webhook queues the digest on the host.
