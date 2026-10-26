@@ -58,6 +58,6 @@
     "svgo": "4.0.1",
     "esbuild": "0.28.1",
     "mdast-util-to-hast": "13.2.1",
-    "picomatch": "4.0.5"
+    "picomatch": "4.0.7"
   }
 }
