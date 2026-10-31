@@ -40,7 +40,7 @@
     "esbuild": "0.28.1",
     "mdast-util-to-hast": "13.2.1",
     "picomatch": "4.0.5",
-    "rollup": "4.62.2",
+    "rollup": "4.67.3",
     "smol-toml": "1.7.0",
     "svgo": "4.0.1",
   },
