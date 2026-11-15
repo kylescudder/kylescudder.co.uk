@@ -1,29 +1,239 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
+import HeadSEO from '../components/HeadSEO.astro'
 import { Image } from 'astro:assets'
+import { LINKS } from '../lib/constants'
 import Me from '../assets/me.png'
-
-import { buttonVariants } from '../components/ui/button'
 ---
 
-<BaseLayout
-  title='404 - Not Found'
-  description='404 Error — this page was not found'
->
-  <main class='flex h-[80vh] flex-auto'>
-    <div class='flex flex-col items-center justify-center px-8'>
-      <Image src={Me} alt='404' class='mb-8 size-64' />
-      <p class='text-muted-foreground text-sm'>404</p>
-      <h1 class='text-4xl font-extrabold tracking-tight lg:text-5xl'>
-        Page not found
-      </h1>
-      <p class='mb-4 leading-7 not-first:mt-6'>
-        Sorry, we couldn't find the page you're looking for.
-      </p>
-      <a href='/' rel='noreferrer' class={buttonVariants()}>
-        {' '}
-        Go back home
-      </a>
-    </div>
-  </main>
-</BaseLayout>
+<html lang='en'>
+  <head>
+    <HeadSEO
+      title='404 - Not Found'
+      description='404 Error — this page was not found'
+    />
+  </head>
+  <body>
+    <main class='signal-page'>
+      <section class='signal-hero' aria-labelledby='not-found-title'>
+        <aside class='signal-rail' aria-label='Error details'>
+          <span>Error 404</span>
+          <span>Hastings, UK</span>
+        </aside>
+
+        <div class='hero-copy'>
+          <p class='eyebrow'>Backend Systems / Portfolio</p>
+          <h1 id='not-found-title'>Page not found</h1>
+          <p>
+            Sorry, we couldn't find the page you're looking for. Everything
+            lives on the home page.
+          </p>
+          <nav class='action-row' aria-label='Error page links'>
+            <a href='/'>Back home</a>
+            <a href={LINKS.github} aria-label='GitHub'>
+              GitHub
+            </a>
+          </nav>
+        </div>
+
+        <div class='signal-portrait-frame'>
+          <Image
+            class='signal-portrait'
+            src={Me}
+            alt=''
+            widths={[280, 320, 420]}
+            sizes='(max-width: 920px) 72vw, 320px'
+            loading='eager'
+          />
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+
+<style>
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(html) {
+    background: #10130f;
+  }
+
+  :global(body) {
+    margin: 0;
+    background:
+      linear-gradient(90deg, rgba(238, 82, 45, 0.12) 1px, transparent 1px),
+      linear-gradient(rgba(238, 82, 45, 0.08) 1px, transparent 1px),
+      radial-gradient(
+        circle at 72% 12%,
+        rgba(238, 82, 45, 0.28),
+        transparent 26%
+      ),
+      #10130f;
+    background-size:
+      42px 42px,
+      42px 42px,
+      auto,
+      auto;
+    color: #fff4d7;
+    font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  }
+
+  :global(a) {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .signal-page {
+    width: min(100%, 1480px);
+    margin: 0 auto;
+    padding: clamp(16px, 3vw, 42px);
+  }
+
+  .signal-hero {
+    position: relative;
+    display: grid;
+    min-height: 80vh;
+    grid-template-columns: 86px minmax(0, 1fr) minmax(220px, 360px);
+    gap: 14px;
+    align-items: center;
+    border: 1px solid rgba(241, 90, 36, 0.72);
+    padding: clamp(18px, 2vw, 32px) clamp(44px, 4vw, 72px);
+  }
+
+  .signal-rail {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #f15a24;
+    padding: 16px 10px;
+    color: #f15a24;
+    font-size: 13px;
+    writing-mode: vertical-rl;
+  }
+
+  .hero-copy {
+    padding: clamp(8px, 2vw, 24px) 0;
+  }
+
+  .eyebrow {
+    margin: 0 0 18px;
+    color: #f15a24;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  h1,
+  p {
+    margin-top: 0;
+  }
+
+  h1 {
+    max-width: 930px;
+    margin-bottom: 18px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: clamp(50px, 7vw, 112px);
+    font-weight: 900;
+    line-height: 0.88;
+    text-transform: uppercase;
+  }
+
+  .hero-copy > p:not(.eyebrow) {
+    max-width: 660px;
+    color: #d6ceb9;
+    font-size: clamp(17px, 2vw, 24px);
+    line-height: 1.42;
+  }
+
+  .action-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .action-row a {
+    border: 1px solid currentColor;
+    padding: 11px 14px;
+    font-size: 12px;
+    text-transform: uppercase;
+    transition:
+      transform 180ms ease,
+      background 180ms ease,
+      color 180ms ease;
+  }
+
+  .action-row a:hover,
+  .action-row a:focus-visible {
+    background: #fff4d7;
+    color: #11130f;
+    transform: translateY(-2px);
+  }
+
+  .signal-portrait-frame {
+    position: relative;
+    isolation: isolate;
+    justify-self: center;
+    width: min(320px, 100%);
+  }
+
+  .signal-portrait-frame::after {
+    position: absolute;
+    z-index: -1;
+    inset: 18px -18px -18px 18px;
+    border: 1px solid #f15a24;
+    background: #f15a24;
+    content: '';
+  }
+
+  .signal-portrait {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    border: 1px solid #f15a24;
+    background: #fff4d7;
+    clip-path: polygon(0 0, 100% 0, 100% 91%, 88% 100%, 0 100%);
+    object-fit: contain;
+  }
+
+  @media (max-width: 920px) {
+    .signal-hero {
+      display: block;
+      min-height: auto;
+    }
+
+    .signal-rail {
+      margin-bottom: 24px;
+      writing-mode: horizontal-tb;
+      gap: 12px;
+    }
+
+    .signal-portrait-frame {
+      display: block;
+      width: min(280px, 72vw);
+      margin: 36px auto 0;
+    }
+  }
+
+  @media (min-width: 921px) and (max-width: 1320px) {
+    h1 {
+      max-width: 780px;
+      font-size: clamp(46px, 5.8vw, 84px);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .signal-page {
+      padding: 14px;
+    }
+
+    .signal-hero {
+      padding: 18px 20px 28px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 17vw, 72px);
+    }
+  }
+</style>

@@ -11,26 +11,15 @@ test('home page introduces Kyle and his experience', async ({ page }) => {
   )
 })
 
-test('work page lists projects', async ({ page }) => {
-  await page.goto('/work/')
+test('experience roles expand on the home page', async ({ page }) => {
+  await page.goto('/')
 
-  await expect(page.locator('h2').first()).toBeVisible()
-})
+  const role = page.locator('.experience-item').nth(1)
+  await expect(role).not.toHaveAttribute('open', '')
+  await role.locator('summary').click()
 
-test('theme toggle switches to dark and remembers it', async ({ page }) => {
-  await page.goto('/work/')
-  // Wait for the React island to hydrate before opening its menu
-  await page
-    .locator('astro-island:not([ssr])', {
-      has: page.getByRole('button', { name: 'Toggle theme' })
-    })
-    .waitFor()
-  await page.getByRole('button', { name: 'Toggle theme' }).click()
-  await page.getByRole('menuitem', { name: 'Dark' }).click()
-
-  await expect(page.locator('html')).toHaveClass(/\bdark\b/)
-  await page.reload()
-  await expect(page.locator('html')).toHaveClass(/\bdark\b/)
+  await expect(role).toHaveAttribute('open', '')
+  await expect(role.locator('li').first()).toBeVisible()
 })
 
 test('CV download is served', async ({ request }) => {
