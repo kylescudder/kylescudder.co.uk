@@ -1,8 +1,6 @@
 ---
 import HeadSEO from '../components/HeadSEO.astro'
-import { Image } from 'astro:assets'
 import { LINKS } from '../lib/constants'
-import Me from '../assets/me.png'
 ---
 
 <html lang='en'>
@@ -35,15 +33,10 @@ import Me from '../assets/me.png'
           </nav>
         </div>
 
-        <div class='signal-portrait-frame'>
-          <Image
-            class='signal-portrait'
-            src={Me}
-            alt=''
-            widths={[280, 320, 420]}
-            sizes='(max-width: 920px) 72vw, 320px'
-            loading='eager'
-          />
+        <div class='signal-portrait-frame' aria-hidden='true'>
+          <div class='signal-code'>
+            <span>404</span>
+          </div>
         </div>
       </section>
     </main>
@@ -187,14 +180,22 @@ import Me from '../assets/me.png'
     content: '';
   }
 
-  .signal-portrait {
+  .signal-code {
     position: relative;
-    aspect-ratio: 1 / 1;
+    display: grid;
+    aspect-ratio: 4 / 5;
     width: 100%;
+    place-items: center;
     border: 1px solid #f15a24;
-    background: #fff4d7;
+    background: #10130f;
     clip-path: polygon(0 0, 100% 0, 100% 91%, 88% 100%, 0 100%);
-    object-fit: contain;
+  }
+
+  .signal-code span {
+    color: #f15a24;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: clamp(96px, 11vw, 160px);
+    line-height: 1;
   }
 
   @media (max-width: 920px) {
@@ -212,7 +213,11 @@ import Me from '../assets/me.png'
     .signal-portrait-frame {
       display: block;
       width: min(280px, 72vw);
-      margin: 36px auto 0;
+      margin: 36px auto 18px;
+    }
+
+    .signal-code {
+      aspect-ratio: 4 / 3;
     }
   }
 
