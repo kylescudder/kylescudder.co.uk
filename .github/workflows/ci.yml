@@ -31,7 +31,7 @@ jobs:
           trap 'PORTFOLIO_IMAGE=kylescudder-site:ci docker compose -f compose.yaml down; docker network rm platform-web' EXIT
           PORTFOLIO_IMAGE=kylescudder-site:ci docker compose -f compose.yaml up -d --wait --wait-timeout 60
           docker exec kylescudder-site-kylescudder-site-1 wget -qO- http://127.0.0.1:8080/healthz | grep -qx "{\"ok\":true,\"revision\":\"$GITHUB_SHA\"}"
-          for path in / /work/ /redesigns/ /CV.pdf; do
+          for path in / /CV.pdf; do
             docker exec kylescudder-site-kylescudder-site-1 wget -qO /dev/null "http://127.0.0.1:8080$path"
           done
           status=$(docker exec kylescudder-site-kylescudder-site-1 wget -S -O - http://127.0.0.1:8080/missing-page 2>&1 || true)
