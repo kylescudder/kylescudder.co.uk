@@ -272,8 +272,14 @@ const contacts = [
   h1 {
     max-width: 930px;
     margin-bottom: 18px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    /* Condensed fallbacks for systems without Impact (Android, most Linux). */
+    font-family:
+      Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif-condensed,
+      'Roboto Condensed', 'Liberation Sans Narrow', 'DejaVu Sans Condensed',
+      sans-serif;
     font-size: clamp(50px, 7vw, 112px);
+    /* Never let one long word widen the page on a narrow screen. */
+    overflow-wrap: break-word;
     font-weight: 900;
     line-height: 0.88;
     text-transform: uppercase;

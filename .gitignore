@@ -11,3 +11,7 @@ state/
 backups/
 deploy-spool/
 __pycache__/
+
+playwright-report/
+test-results/
+artifacts/e2e-ci/
