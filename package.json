@@ -52,7 +52,7 @@
     "*": "prettier --check --ignore-unknown"
   },
   "overrides": {
-    "@babel/core": "7.29.7",
+    "@babel/core": "7.29.16",
     "rollup": "4.68.3",
     "smol-toml": "1.9.1",
     "svgo": "4.0.1",
