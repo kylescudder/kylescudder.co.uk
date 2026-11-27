@@ -53,7 +53,7 @@
   },
   "overrides": {
     "@babel/core": "7.29.16",
-    "rollup": "4.68.3",
+    "rollup": "4.68.9",
     "smol-toml": "1.9.1",
     "svgo": "4.0.1",
     "esbuild": "0.28.1",
